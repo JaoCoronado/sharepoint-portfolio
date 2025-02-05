@@ -41,12 +41,14 @@ h2 {
     width: 80%;
     max-width: 800px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Inicialmente oculto */
+    transform: translateY(50px); /* Movido hacia abajo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.project:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.project.visible {
+    opacity: 1; /* Visible */
+    transform: translateY(0); /* Posición original */
 }
 
 .project img {
