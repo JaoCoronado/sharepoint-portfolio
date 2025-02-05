@@ -1,35 +1,56 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio SharePoint | Jair Y.</title>
+    <title>SharePoint Portfolio | Jair Y.</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 <body>
     <header>
-        <h1>Jair Y. | SharePoint Developer</h1>
-        <p>Especialista en SharePoint, SPFx, Power Automate y Power Apps.</p>
+        <h1>Jair Y. Coronado A. | SharePoint Developer</h1>
+        <p>SPFx | React | TypeScript | Power Apps | Power Automate | PowerShell</p>
     </header>
 
-    <section id="proyectos">
-        <h2>Mis Proyectos</h2>
+    <main id="projects">
+        <h2>My Projects</h2>
 
-        <div class="proyecto">
-            <img src="images/proyecto1.png" alt="Sistema de Encuestas en SharePoint">
-            <h3>Sistema de Encuestas en SharePoint</h3>
-            <p>Automatización de encuestas con Power Automate y Power Apps.</p>
+        <div class="project" data-aos="fade-up">
+            <img src="images/project1.png" alt="SharePoint Survey System">
+            <h3>SharePoint Survey System</h3>
+            <p>Automation of surveys using Power Automate and Power Apps.</p>
         </div>
 
-        <div class="proyecto">
-            <img src="images/proyecto2.png" alt="Gestión Documental">
-            <h3>Gestión Documental en SharePoint</h3>
-            <p>Flujos de aprobación y seguridad basada en roles.</p>
+        <div class="project" data-aos="fade-up">
+            <img src="images/project2.png" alt="Document Management System">
+            <h3>Document Management System</h3>
+            <p>Approval workflows and role-based security in SharePoint.</p>
         </div>
-    </section>
+
+        <div class="project" data-aos="fade-up">
+            <img src="images/project3.png" alt="Custom Web Parts with SPFx">
+            <h3>Custom Web Parts with SPFx</h3>
+            <p>Development of interactive web parts using SharePoint Framework.</p>
+        </div>
+
+        <div class="project" data-aos="fade-up">
+            <img src="images/project4.png" alt="Company Intranet Portal">
+            <h3>Company Intranet Portal</h3>
+            <p>Design and implementation of a modern intranet using SharePoint Online.</p>
+        </div>
+    </main>
 
     <footer>
-        <p>Contacto: <a href="mailto:tuemail@example.com">tuemail@example.com</a></p>
+        <p>Contact: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
     </footer>
+
+    <script>
+        AOS.init({
+            duration: 1000, // Duración de la animación en milisegundos
+            once: true, // La animación solo se ejecuta una vez
+        });
+    </script>
 </body>
 </html>
