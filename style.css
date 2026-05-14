@@ -106,6 +106,10 @@ header p {
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* JS adds this class before observing — cards stay visible if JS is slow */
+.project-card.card-pre-animate {
   opacity: 0;
   transform: translateY(20px);
 }

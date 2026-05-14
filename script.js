@@ -166,7 +166,10 @@ document.addEventListener('DOMContentLoaded', function () {
     { threshold: 0.1 }
   );
 
-  cards.forEach((card) => observer.observe(card));
+  cards.forEach((card) => {
+    card.classList.add('card-pre-animate');
+    observer.observe(card);
+  });
 
   // ── Close modal on backdrop click ──
   document.getElementById('modal').addEventListener('click', function (e) {
