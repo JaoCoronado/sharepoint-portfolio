@@ -1,0 +1,8 @@
+{
+  "name": "sharepoint-portfolio",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "serve": "^14.2.6"
+  }
+}

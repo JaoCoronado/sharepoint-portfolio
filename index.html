@@ -8,120 +8,155 @@
   </head>
   <body>
     <header>
-      <h1>Jair Y. Coronado A. | SharePoint Developer</h1>
-      <p>
-        SPFx | React | TypeScript | Power Apps | Power Automate | PowerShell
-      </p>
-      <!-- <button id="languageToggle">Español</button> -->
+      <nav>
+        <span class="nav-name">Jair Y. Coronado A.</span>
+        <button id="languageToggle" class="lang-btn">Español</button>
+      </nav>
+      <h1>SharePoint Developer</h1>
+      <p>SPFx · React · TypeScript · Power Apps · Power Automate · PowerShell</p>
     </header>
 
-    <main id="projects">
-      <h2>My Projects</h2>
-
-      <!-- Project 4 -->
-      <div class="project">
-        <img src="images/project4.png" alt="Company Intranet Portal" />
-        <h3 id="project4-title">Corporate Intranet Portal</h3>
-        <p id="project4-desc">
-          Migrated a legacy intranet to SharePoint using SPFx, React, and
-          TypeScript, enabling role-based content management and scalable
-          deployment.
-        </p>
-        <div class="additional-images">
-          <img src="images/project4.1.png" alt="Company Intranet Portal" />
-          <img src="images/project4.2.png" alt="Company Intranet Portal" />
-          <img src="images/project4.3.png" alt="Company Intranet Portal" />
-          <img src="images/project4.4.png" alt="Company Intranet Portal" />
-          <img src="images/project4.5.png" alt="Company Intranet Portal" />
-          <img src="images/project4.6.png" alt="Company Intranet Portal" />
-          <img src="images/project4.7.png" alt="Company Intranet Portal" />
-          <img src="images/project4.8.png" alt="Company Intranet Portal" />
-        </div>
+    <main id="main-content">
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="spfx">SPFx</button>
+        <button class="filter-btn" data-filter="powerapps">Power Apps</button>
+        <button class="filter-btn" data-filter="js">JavaScript</button>
+        <button class="filter-btn" data-filter="powerautomate">Power Automate</button>
       </div>
 
-      <!-- Project 1 -->
-      <div class="project">
-        <img src="images/project1.png" alt="Financial Operations Management" />
-        <h3 id="project1-title">Financial Operations Management</h3>
-        <p id="project1-desc">
-          Developed a SharePoint-based system using JavaScript, CSS, and HTML
-          for web components, Power Automate for document creation and
-          approvals, and SharePoint Online for secure storage.
-        </p>
-        <div class="additional-images">
-          <img
-            src="images/project1.1.png"
-            alt="Financial Operations Management"
-          />
-          <img
-            src="images/project1.2.png"
-            alt="Financial Operations Management"
-          />
-        </div>
-      </div>
+      <section id="projects" class="projects-grid">
 
-      <!-- Project 2 -->
-      <div class="project">
-        <img src="images/project2.png" alt="Company Voting System" />
-        <h3 id="project2-title">Company Voting System</h3>
-        <p id="project2-desc">
-          Designed a secure voting system using SharePoint, JavaScript, and
-          Bootstrap, implementing real-time reporting and encrypted voting
-          processes.
-        </p>
-        <div class="additional-images">
-          <img src="images/project2.1.png" alt="Company Voting System" />
-          <img src="images/project2.2.png" alt="Company Voting System" />
-          <img src="images/project2.3.png" alt="Company Voting System" />
+        <!-- Project 6: Future You (AT&T · Credera) — FIRST: most recent -->
+        <div class="project-card" data-tags="spfx react typescript sharepoint" onclick="openModal('project6-images')">
+          <div class="card-img-wrapper">
+            <img src="images/project6.svg" alt="Future You – Learning Platform" />
+          </div>
+          <div class="card-body">
+            <span class="card-client">AT&amp;T · Credera</span>
+            <h3 id="project6-title">Future You – Learning Platform</h3>
+            <div class="tech-badges">
+              <span class="badge">SPFx</span>
+              <span class="badge">React</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">SharePoint</span>
+            </div>
+            <p id="project6-desc">Developed an SPFx platform for AT&amp;T enabling personalized learning paths, career growth tracking, and talent retention tools to help collaborators grow within the company.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Project 3 -->
-      <div class="project">
-        <img src="images/project3.png" alt="Corporate Requests System" />
-        <h3 id="project3-title">Corporate Requests System</h3>
-        <p id="project3-desc">
-          Created a ticketing system for pricing offers and product management,
-          integrated with Power Automate for approvals and Excel exports.
-        </p>
-        <div class="additional-images">
-          <img src="images/project3.1.png" alt="Corporate Requests System" />
-          <img src="images/project3.2.png" alt="Corporate Requests System" />
-          <img src="images/project3.3.png" alt="Corporate Requests System" />
-          <img src="images/project3.4.png" alt="Corporate Requests System" />
-          <img src="images/project3.5.png" alt="Corporate Requests System" />
-          <img src="images/project3.6.png" alt="Corporate Requests System" />
-          <img src="images/project3.7.png" alt="Corporate Requests System" />
-          <img src="images/project3.8.png" alt="Corporate Requests System" />
-          <img src="images/project3.9.png" alt="Corporate Requests System" />
+        <!-- Project 7: Self Nomination (AT&T · Credera) -->
+        <div class="project-card" data-tags="powerapps powerautomate sharepoint" onclick="openModal('project7-images')">
+          <div class="card-img-wrapper">
+            <img src="images/project7.svg" alt="Self Nomination Portal" />
+          </div>
+          <div class="card-body">
+            <span class="card-client">AT&amp;T · Credera</span>
+            <h3 id="project7-title">Self Nomination Portal</h3>
+            <div class="tech-badges">
+              <span class="badge">Power Apps</span>
+              <span class="badge">Power Automate</span>
+              <span class="badge">SharePoint</span>
+            </div>
+            <p id="project7-desc">Built a Power Apps solution to track self-nomination workflows for training courses — covering open access enrollment, supervisor review, and HRBP approval stages.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Project 5 -->
-      <div class="project">
-        <img src="images/project5.png" alt="P10 Intranet Portal" />
-        <h3 id="project5-title">P10 Intranet Portal</h3>
-        <p id="project5-desc">
-          Developed an intranet portal for P10 company where all information and images are managed through SharePoint lists and libraries, providing ease of use for users. Additionally, implemented a real-time stock ticker with graphical representation of the stock value.
-        </p>
-        <div class="additional-images">
-          <img src="images/project5.1.png" alt="P10 Intranet Portal" />
-          <img src="images/project5.2.png" alt="P10 Intranet Portal" />
-          <img src="images/project5.3.png" alt="P10 Intranet Portal" />
+        <!-- Project 4: Corporate Intranet Portal (SPFx) -->
+        <div class="project-card" data-tags="spfx react typescript sharepoint" onclick="openModal('project4-images')">
+          <div class="card-img-wrapper">
+            <img src="images/project4.png" alt="Corporate Intranet Portal" />
+          </div>
+          <div class="card-body">
+            <span class="card-client">Independent</span>
+            <h3 id="project4-title">Corporate Intranet Portal</h3>
+            <div class="tech-badges">
+              <span class="badge">SPFx</span>
+              <span class="badge">React</span>
+              <span class="badge">TypeScript</span>
+            </div>
+            <p id="project4-desc">Migrated a legacy intranet to SharePoint using SPFx, React, and TypeScript, enabling role-based content management and scalable deployment.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Project 5: P10 Intranet Portal -->
+        <div class="project-card" data-tags="js sharepoint" onclick="openModal('project5-images')">
+          <div class="card-img-wrapper">
+            <img src="images/project5.png" alt="P10 Intranet Portal" />
+          </div>
+          <div class="card-body">
+            <span class="card-client">P10</span>
+            <h3 id="project5-title">P10 Intranet Portal</h3>
+            <div class="tech-badges">
+              <span class="badge">JavaScript</span>
+              <span class="badge">SharePoint</span>
+            </div>
+            <p id="project5-desc">Created an intranet portal for P10 company with real-time stock ticker and SharePoint-based content management.</p>
+          </div>
+        </div>
+
+        <!-- Project 1: Financial Operations Management -->
+        <div class="project-card" data-tags="js powerautomate sharepoint" onclick="openModal('project1-images')">
+          <div class="card-img-wrapper">
+            <img src="images/project1.png" alt="Financial Operations Management" />
+          </div>
+          <div class="card-body">
+            <span class="card-client">Independent</span>
+            <h3 id="project1-title">Financial Operations Management</h3>
+            <div class="tech-badges">
+              <span class="badge">JavaScript</span>
+              <span class="badge">Power Automate</span>
+              <span class="badge">SharePoint</span>
+            </div>
+            <p id="project1-desc">Developed a SharePoint-based system using JavaScript, CSS, and HTML for web components, Power Automate for document creation and approvals, and SharePoint Online for secure storage.</p>
+          </div>
+        </div>
+
+        <!-- Project 2: Company Voting System -->
+        <div class="project-card" data-tags="js sharepoint" onclick="openModal('project2-images')">
+          <div class="card-img-wrapper">
+            <img src="images/project2.png" alt="Company Voting System" />
+          </div>
+          <div class="card-body">
+            <span class="card-client">Independent</span>
+            <h3 id="project2-title">Company Voting System</h3>
+            <div class="tech-badges">
+              <span class="badge">JavaScript</span>
+              <span class="badge">Bootstrap</span>
+              <span class="badge">SharePoint</span>
+            </div>
+            <p id="project2-desc">Designed a secure voting system using SharePoint, JavaScript, and Bootstrap, implementing real-time reporting and encrypted voting processes.</p>
+          </div>
+        </div>
+
+        <!-- Project 3: Employee Onboarding Portal -->
+        <div class="project-card" data-tags="powerautomate sharepoint" onclick="openModal('project3-images')">
+          <div class="card-img-wrapper">
+            <img src="images/project3.png" alt="Employee Onboarding Portal" />
+          </div>
+          <div class="card-body">
+            <span class="card-client">Independent</span>
+            <h3 id="project3-title">Corporate Requests System</h3>
+            <div class="tech-badges">
+              <span class="badge">Power Automate</span>
+              <span class="badge">SharePoint</span>
+            </div>
+            <p id="project3-desc">Created a ticketing system for pricing offers and product management, integrated with Power Automate for approvals and Excel exports.</p>
+          </div>
+        </div>
+
+      </section>
     </main>
 
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-content" class="modal-inner"></div>
+    </div>
+
     <footer>
-      <p>
-        Contact: <a href="mailto:jairyesidk@gmail.com">jairyesidk@gmail.com</a>
-      </p>
-      <p>
-        LinkedIn:
-        <a href="https://www.linkedin.com/in/jaircoronadoalbarracin/"
-          >https://www.linkedin.com/in/jaircoronadoalbarracin/</a
-        >
-      </p>
+      <p>Contact: <a href="mailto:jairyesidk@gmail.com">jairyesidk@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/jaircoronadoalbarracin/">linkedin.com/in/jaircoronadoalbarracin</a></p>
     </footer>
 
     <script src="script.js"></script>
