@@ -82,6 +82,12 @@ const translations = {
     'exp5-period':         'Jun 2020 – Sep 2021',
     'exp5-type':           'Employee',
     'exp5-b1':             'Developed web solutions and digital tools as part of an in-house product team',
+    'exp1-b3':             'Built integrated solutions connecting SharePoint with Power Automate flows, Outlook, and Azure Functions across enterprise environments',
+    'exp1-b4':             'Worked with React + TypeScript, Azure DevOps, GitHub repos, Veracode security scan pipelines, and Terraform-based infrastructure',
+    'exp2-b3':             'Designed component architecture and produced user documentation across multiple enterprise client projects',
+    'exp3-b2':             'Managed portal content through SharePoint lists and libraries, integrating both internal and external data sources',
+    'exp4-b2':             'Handled full project delivery: requirements gathering, solution design, negotiation, and frontend development using JS, jQuery, Bootstrap, HTML5, and CSS3',
+    'exp5-b2':             'Administered SharePoint Online environments — created and configured sites, lists, and Master Pages while defining technical requirements with clients',
     'proj-section-title':  'Projects',
     'project1-title':      'Financial Operations Management',
     'project1-desc':       'Developed a SharePoint-based system using JavaScript, CSS, and HTML for web components, Power Automate for document creation and approvals, and SharePoint Online for secure storage.',
@@ -112,6 +118,23 @@ const translations = {
     'form-label-email':    'Email',
     'form-label-msg':      'Message',
     'form-submit':         'Send Message',
+    'hero-cta-cv':         'Download CV',
+    'nav-about':           'About',
+    'nav-experience':      'Experience',
+    'nav-projects':        'Projects',
+    'nav-skills':          'Skills',
+    'nav-contact':         'Contact',
+    'hero-location':       'Bogotá, Colombia · English B2',
+    'filter-all':          'All',
+    'exp1-client':         'Client: AT&T',
+    'exp3-client':         'Client: P10 Holdings',
+    'card-client-p6':      'AT&T · Omnicom',
+    'card-client-p7':      'AT&T · Omnicom',
+    'card-client-p4':      'Independent',
+    'card-client-p5':      'P10 Holdings · SIIMPL',
+    'card-client-p1':      'Independent',
+    'card-client-p2':      'Independent',
+    'card-client-p3':      'Independent',
   },
   es: {
     'hero-badge':          'Disponible para proyectos freelance',
@@ -144,6 +167,12 @@ const translations = {
     'exp5-period':         'Jun 2020 – Sep 2021',
     'exp5-type':           'Empleado',
     'exp5-b1':             'Desarrollé soluciones web y herramientas digitales como parte de un equipo de producto interno',
+    'exp1-b3':             'Construí soluciones integradas conectando SharePoint con flujos de Power Automate, Outlook y Azure Functions en entornos enterprise',
+    'exp1-b4':             'Trabajé con React + TypeScript, Azure DevOps, repositorios GitHub, pipelines de seguridad Veracode e infraestructura basada en Terraform',
+    'exp2-b3':             'Diseñé arquitecturas de componentes y produje documentación de usuario para múltiples proyectos de clientes enterprise',
+    'exp3-b2':             'Gestioné el contenido del portal mediante listas y bibliotecas de SharePoint, integrando fuentes de datos internas y externas',
+    'exp4-b2':             'Gestioné la entrega end-to-end de proyectos: levantamiento de requerimientos, diseño de soluciones, negociación y desarrollo frontend con JS, jQuery, Bootstrap, HTML5 y CSS3',
+    'exp5-b2':             'Administré entornos de SharePoint Online — creé y configuré sitios, listas y Master Pages mientras definía requerimientos técnicos con los clientes',
     'proj-section-title':  'Proyectos',
     'project1-title':      'Gestión de Operaciones Financieras',
     'project1-desc':       'Desarrollé un sistema basado en SharePoint usando JavaScript, CSS y HTML para componentes web, Power Automate para creación y aprobación de documentos, y SharePoint Online para almacenamiento seguro.',
@@ -174,6 +203,34 @@ const translations = {
     'form-label-email':    'Correo',
     'form-label-msg':      'Mensaje',
     'form-submit':         'Enviar Mensaje',
+    'hero-cta-cv':         'Descargar CV',
+    'nav-about':           'Acerca',
+    'nav-experience':      'Experiencia',
+    'nav-projects':        'Proyectos',
+    'nav-skills':          'Habilidades',
+    'nav-contact':         'Contacto',
+    'hero-location':       'Bogotá, Colombia · Inglés B2',
+    'filter-all':          'Todos',
+    'exp1-client':         'Cliente: AT&T',
+    'exp3-client':         'Cliente: P10 Holdings',
+    'card-client-p6':      'AT&T · Omnicom',
+    'card-client-p7':      'AT&T · Omnicom',
+    'card-client-p4':      'Independiente',
+    'card-client-p5':      'P10 Holdings · SIIMPL',
+    'card-client-p1':      'Independiente',
+    'card-client-p2':      'Independiente',
+    'card-client-p3':      'Independiente',
+  },
+};
+
+const placeholders = {
+  en: {
+    'form-name':    'Your name',
+    'form-message': 'Tell me about your project or opportunity...',
+  },
+  es: {
+    'form-name':    'Tu nombre',
+    'form-message': 'Cuéntame sobre tu proyecto u oportunidad...',
   },
 };
 
@@ -227,6 +284,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const el = document.getElementById(id);
       if (el) el.textContent = text;
     });
+    Object.entries(placeholders[lang]).forEach(([id, text]) => {
+      const el = document.getElementById(id);
+      if (el) el.setAttribute('placeholder', text);
+    });
   }
 
   languageToggle.addEventListener('click', function () {
@@ -254,6 +315,41 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   });
+
+  // ── Stats count-up animation ──
+  function animateCount(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const startTime = performance.now();
+
+    function step(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  const statsBar = document.querySelector('.stats-bar');
+  if (statsBar) {
+    const statsObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            document.querySelectorAll('.stat-number[data-target]').forEach(animateCount);
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    statsObserver.observe(statsBar);
+  }
 
   // ── IntersectionObserver: project cards ──
   const cardObserver = new IntersectionObserver(
