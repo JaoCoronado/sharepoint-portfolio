@@ -27,11 +27,11 @@
     <nav class="main-nav" id="mainNav">
       <a href="#about" class="nav-logo">Jair Y. Coronado A.</a>
       <ul class="nav-links">
-        <li><a href="#about"      class="nav-link" data-section="about">About</a></li>
-        <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
-        <li><a href="#projects"   class="nav-link" data-section="projects">Projects</a></li>
-        <li><a href="#skills"     class="nav-link" data-section="skills">Skills</a></li>
-        <li><a href="#contact"    class="nav-link" data-section="contact">Contact</a></li>
+        <li><a href="#about"      class="nav-link" data-section="about"       id="nav-about">About</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience"  id="nav-experience">Experience</a></li>
+        <li><a href="#projects"   class="nav-link" data-section="projects"    id="nav-projects">Projects</a></li>
+        <li><a href="#skills"     class="nav-link" data-section="skills"      id="nav-skills">Skills</a></li>
+        <li><a href="#contact"    class="nav-link" data-section="contact"     id="nav-contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
         <button id="languageToggle" class="lang-btn">Español</button>
@@ -47,7 +47,7 @@
         <span class="hero-badge" id="hero-badge">Available for freelance projects</span>
         <h1 class="hero-name" id="hero-name">Jair Y. Coronado A.</h1>
         <p class="hero-title" id="hero-title">Senior Software Engineer · SharePoint Developer</p>
-        <p class="hero-location">Bogotá, Colombia &nbsp;·&nbsp; English B2</p>
+        <p class="hero-location" id="hero-location">Bogotá, Colombia &nbsp;·&nbsp; English B2</p>
         <p class="hero-tagline" id="hero-tagline">
           6+ years building Microsoft 365 solutions for enterprise clients —
           SPFx, Power Platform, React &amp; TypeScript.
@@ -55,6 +55,10 @@
         <div class="hero-cta">
           <a href="#projects" class="btn-primary" id="hero-cta-projects">View Projects</a>
           <a href="#contact"  class="btn-secondary" id="hero-cta-contact">Contact Me</a>
+          <a href="docs/CV-JairCoronado2026.pdf" download="CV-JairCoronado2026.pdf" target="_blank" rel="noopener" class="btn-cv">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span id="hero-cta-cv">Download CV</span>
+          </a>
         </div>
       </div>
     </section>
@@ -63,22 +67,22 @@
     <div class="stats-bar">
       <div class="stats-inner">
         <div class="stat-item">
-          <span class="stat-number">9+</span>
+          <span class="stat-number" data-target="9" data-suffix="+">9+</span>
           <span class="stat-label" id="stat1-label">SPFx solutions in production</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-number">10K+</span>
+          <span class="stat-number" data-target="10" data-suffix="K+">10K+</span>
           <span class="stat-label" id="stat2-label">users impacted</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-number">6+</span>
+          <span class="stat-number" data-target="6" data-suffix="+">6+</span>
           <span class="stat-label" id="stat3-label">years of experience</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-number">3+</span>
+          <span class="stat-number" data-target="3" data-suffix="+">3+</span>
           <span class="stat-label" id="stat4-label">freelance clients delivered</span>
         </div>
       </div>
@@ -99,7 +103,7 @@
                 <div class="timeline-info">
                   <h3 class="timeline-company">Omnicom Global Solutions</h3>
                   <span class="timeline-role" id="exp1-role">Senior Software Engineer</span>
-                  <span class="timeline-client">Client: AT&amp;T</span>
+                  <span class="timeline-client" id="exp1-client">Client: AT&amp;T</span>
                 </div>
                 <div class="timeline-meta">
                   <span class="timeline-period" id="exp1-period">Jul 2025 – Present</span>
@@ -109,6 +113,8 @@
               <ul class="timeline-bullets">
                 <li id="exp1-b1">Automated self-nomination workflows for 10,000+ users, eliminating manual intervention in the annual training cycle</li>
                 <li id="exp1-b2">Resolved critical SharePoint throttling bugs that blocked processing of 1,000+ records in batch operations</li>
+                <li id="exp1-b3">Built integrated solutions connecting SharePoint with Power Automate flows, Outlook, and Azure Functions across enterprise environments</li>
+                <li id="exp1-b4">Worked with React + TypeScript, Azure DevOps, GitHub repos, Veracode security scan pipelines, and Terraform-based infrastructure</li>
               </ul>
               <div class="tech-badges">
                 <span class="badge">Power Apps</span>
@@ -136,6 +142,7 @@
               <ul class="timeline-bullets">
                 <li id="exp2-b1">Delivered 9 SPFx solutions in production for enterprise clients across multiple industries</li>
                 <li id="exp2-b2">Led end-to-end development of SharePoint portals, automated workflows, and data management tools</li>
+                <li id="exp2-b3">Designed component architecture and produced user documentation across multiple enterprise client projects</li>
               </ul>
               <div class="tech-badges">
                 <span class="badge">SPFx</span>
@@ -154,7 +161,7 @@
                 <div class="timeline-info">
                   <h3 class="timeline-company">SIIMPL</h3>
                   <span class="timeline-role" id="exp3-role">SharePoint Developer</span>
-                  <span class="timeline-client">Client: P10 Holdings</span>
+                  <span class="timeline-client" id="exp3-client">Client: P10 Holdings</span>
                 </div>
                 <div class="timeline-meta">
                   <span class="timeline-period" id="exp3-period">Feb 2025</span>
@@ -163,6 +170,7 @@
               </div>
               <ul class="timeline-bullets">
                 <li id="exp3-b1">Built the main intranet portal for P10 Holdings with real-time stock data via Alphavantage API</li>
+                <li id="exp3-b2">Managed portal content through SharePoint lists and libraries, integrating both internal and external data sources</li>
               </ul>
               <div class="tech-badges">
                 <span class="badge">SPFx</span>
@@ -188,6 +196,7 @@
               </div>
               <ul class="timeline-bullets">
                 <li id="exp4-b1">Delivered 3 end-to-end projects autonomously with 2 additional clients in pipeline and ongoing active maintenance</li>
+                <li id="exp4-b2">Handled full project delivery: requirements gathering, solution design, negotiation, and frontend development using JS, jQuery, Bootstrap, HTML5, and CSS3</li>
               </ul>
               <div class="tech-badges">
                 <span class="badge">SharePoint</span>
@@ -213,6 +222,7 @@
               </div>
               <ul class="timeline-bullets">
                 <li id="exp5-b1">Developed web solutions and digital tools as part of an in-house product team</li>
+                <li id="exp5-b2">Administered SharePoint Online environments — created and configured sites, lists, and Master Pages while defining technical requirements with clients</li>
               </ul>
               <div class="tech-badges">
                 <span class="badge">JavaScript</span>
@@ -232,7 +242,7 @@
         <h2 class="section-title" id="proj-section-title">Projects</h2>
 
         <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
           <button class="filter-btn" data-filter="spfx">SPFx</button>
           <button class="filter-btn" data-filter="powerapps">Power Apps</button>
           <button class="filter-btn" data-filter="powerautomate">Power Automate</button>
@@ -245,7 +255,7 @@
               <img src="images/project6.svg" alt="Future You – Learning Platform" />
             </div>
             <div class="card-body">
-              <span class="card-client">AT&amp;T · Omnicom</span>
+              <span class="card-client" id="card-client-p6">AT&amp;T · Omnicom</span>
               <h3 id="project6-title">Future You – Learning Platform</h3>
               <div class="tech-badges">
                 <span class="badge">SPFx</span>
@@ -262,7 +272,7 @@
               <img src="images/project7.svg" alt="Self Nomination Portal" />
             </div>
             <div class="card-body">
-              <span class="card-client">AT&amp;T · Omnicom</span>
+              <span class="card-client" id="card-client-p7">AT&amp;T · Omnicom</span>
               <h3 id="project7-title">Self Nomination Portal</h3>
               <div class="tech-badges">
                 <span class="badge">Power Apps</span>
@@ -278,7 +288,7 @@
               <img src="images/project4.png" alt="Corporate Intranet Portal" />
             </div>
             <div class="card-body">
-              <span class="card-client">Independent</span>
+              <span class="card-client" id="card-client-p4">Independent</span>
               <h3 id="project4-title">Corporate Intranet Portal</h3>
               <div class="tech-badges">
                 <span class="badge">SPFx</span>
@@ -294,7 +304,7 @@
               <img src="images/project5.1.png" alt="P10 Intranet Portal" />
             </div>
             <div class="card-body">
-              <span class="card-client">P10 Holdings · SIIMPL</span>
+              <span class="card-client" id="card-client-p5">P10 Holdings · SIIMPL</span>
               <h3 id="project5-title">P10 Intranet Portal</h3>
               <div class="tech-badges">
                 <span class="badge">JavaScript</span>
@@ -309,7 +319,7 @@
               <img src="images/project1.png" alt="Financial Operations Management" />
             </div>
             <div class="card-body">
-              <span class="card-client">Independent</span>
+              <span class="card-client" id="card-client-p1">Independent</span>
               <h3 id="project1-title">Financial Operations Management</h3>
               <div class="tech-badges">
                 <span class="badge">JavaScript</span>
@@ -325,7 +335,7 @@
               <img src="images/project2.png" alt="Company Voting System" />
             </div>
             <div class="card-body">
-              <span class="card-client">Independent</span>
+              <span class="card-client" id="card-client-p2">Independent</span>
               <h3 id="project2-title">Company Voting System</h3>
               <div class="tech-badges">
                 <span class="badge">JavaScript</span>
@@ -341,7 +351,7 @@
               <img src="images/project3.png" alt="Corporate Requests System" />
             </div>
             <div class="card-body">
-              <span class="card-client">Independent</span>
+              <span class="card-client" id="card-client-p3">Independent</span>
               <h3 id="project3-title">Corporate Requests System</h3>
               <div class="tech-badges">
                 <span class="badge">Power Automate</span>
