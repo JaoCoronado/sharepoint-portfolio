@@ -302,9 +302,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const languageToggle = document.getElementById('languageToggle');
 
   function detectInitialLang() {
+    // Default to English for international recruiters; only honor an explicit
+    // previous choice saved by the visitor.
     const savedLang = localStorage.getItem('lang');
     if (savedLang === 'en' || savedLang === 'es') return savedLang;
-    return (navigator.language || 'en').toLowerCase().startsWith('es') ? 'es' : 'en';
+    return 'en';
   }
 
   let currentLang = detectInitialLang();
