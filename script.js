@@ -238,6 +238,7 @@ const placeholders = {
 window.openModal = function (projectId) {
   const modal = document.getElementById('modal');
   const modalContent = document.getElementById('modal-content');
+  window._modalLastFocused = document.activeElement;
   modalContent.innerHTML = '';
   const images = projectImages[projectId];
   if (images && images.length > 0) {
@@ -254,11 +255,16 @@ window.openModal = function (projectId) {
   }
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
+  const closeBtn = modal.querySelector('.close');
+  if (closeBtn) closeBtn.focus();
 };
 
 window.closeModal = function () {
   document.getElementById('modal').style.display = 'none';
   document.body.style.overflow = '';
+  if (window._modalLastFocused && window._modalLastFocused.focus) {
+    window._modalLastFocused.focus();
+  }
 };
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -322,6 +328,10 @@ document.addEventListener('DOMContentLoaded', function () {
   function animateCount(el) {
     const target = parseInt(el.dataset.target, 10);
     const suffix = el.dataset.suffix || '';
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.textContent = target + suffix;
+      return;
+    }
     const duration = 1600;
     const startTime = performance.now();
 

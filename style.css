@@ -699,15 +699,33 @@ body.dark .badge-freelance {
 }
 
 /* ── Reveal animation (timeline & skills) ── */
-.reveal {
+/* Gated behind .js so content stays visible without JavaScript (SEO / no-JS). */
+.js .reveal {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.reveal.visible {
+.js .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ── Respect users who prefer reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal,
+  .project-card.card-pre-animate {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* ── Contact ── */
@@ -802,6 +820,8 @@ body.dark .badge-freelance {
   position: fixed;
   top: 20px;
   right: 32px;
+  background: none;
+  border: none;
   color: white;
   font-size: 36px;
   font-weight: bold;

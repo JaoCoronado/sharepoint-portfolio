@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Mark JS as available so reveal animations only hide content when JS can un-hide it -->
+    <script>document.documentElement.classList.add('js');</script>
     <title>Jair Y. Coronado A. · SharePoint Developer</title>
     <meta name="description" content="Senior Software Engineer & SharePoint Developer — SPFx, Power Platform, React, TypeScript. 6+ years building Microsoft 365 solutions for enterprise clients." />
 
@@ -451,8 +453,8 @@
     </section>
 
     <!-- ── Modal ── -->
-    <div id="modal" class="modal">
-      <span class="close" onclick="closeModal()">&times;</span>
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Project screenshots">
+      <button class="close" type="button" onclick="closeModal()" aria-label="Close">&times;</button>
       <div id="modal-content" class="modal-inner"></div>
     </div>
 
