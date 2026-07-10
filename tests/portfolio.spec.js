@@ -5,7 +5,7 @@ test.describe('Portfolio – Page Load', () => {
     const errors = [];
     page.on('pageerror', (err) => errors.push(err.message));
     await page.goto('/');
-    await expect(page).toHaveTitle(/SharePoint Portfolio/);
+    await expect(page).toHaveTitle(/SharePoint Developer/);
     expect(errors).toHaveLength(0);
   });
 });
