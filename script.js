@@ -234,6 +234,21 @@ const placeholders = {
   },
 };
 
+const messages = {
+  en: {
+    sending: 'Sending…',
+    submit:  'Send Message',
+    success: "Message sent! I'll get back to you soon.",
+    error:   'Something went wrong. Please email me directly.',
+  },
+  es: {
+    sending: 'Enviando…',
+    submit:  'Enviar Mensaje',
+    success: 'Mensaje enviado. Te responderé pronto.',
+    error:   'Algo salió mal. Escríbeme directamente por correo.',
+  },
+};
+
 // ── Global modal (must be window-scoped for inline onclick) ──
 window.openModal = function (projectId) {
   const modal = document.getElementById('modal');
@@ -285,9 +300,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ── Language toggle ──
   const languageToggle = document.getElementById('languageToggle');
-  let currentLang = 'en';
+
+  function detectInitialLang() {
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang === 'en' || savedLang === 'es') return savedLang;
+    return (navigator.language || 'en').toLowerCase().startsWith('es') ? 'es' : 'en';
+  }
+
+  let currentLang = detectInitialLang();
 
   function applyLanguage(lang) {
+    document.documentElement.lang = lang;
+    // The button always advertises the OTHER language you can switch to.
+    languageToggle.textContent = lang === 'en' ? 'Español' : 'English';
     Object.entries(translations[lang]).forEach(([id, text]) => {
       const el = document.getElementById(id);
       if (el) el.textContent = text;
@@ -298,9 +323,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  applyLanguage(currentLang);
+
   languageToggle.addEventListener('click', function () {
     currentLang = currentLang === 'en' ? 'es' : 'en';
-    languageToggle.textContent = currentLang === 'en' ? 'Español' : 'English';
+    localStorage.setItem('lang', currentLang);
     applyLanguage(currentLang);
   });
 
@@ -435,8 +462,9 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       const btn    = document.getElementById('form-submit');
       const status = document.getElementById('formStatus');
+      const t = messages[currentLang] || messages.en;
       btn.disabled = true;
-      btn.textContent = '...';
+      btn.textContent = t.sending;
       status.className = 'form-status';
       status.textContent = '';
       try {
@@ -447,17 +475,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         if (res.ok) {
           status.className = 'form-status success';
-          status.textContent = 'Message sent! I\'ll get back to you soon.';
+          status.textContent = t.success;
           contactForm.reset();
         } else {
           throw new Error('server');
         }
       } catch {
         status.className = 'form-status error';
-        status.textContent = 'Something went wrong. Please email me directly.';
+        status.textContent = t.error;
       }
       btn.disabled = false;
-      btn.textContent = currentLang === 'es' ? 'Enviar Mensaje' : 'Send Message';
+      btn.textContent = t.submit;
     });
   }
 
