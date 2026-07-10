@@ -1,66 +1,61 @@
-# My SharePoint Portfolio
+# Jair Y. Coronado A. — SharePoint Developer Portfolio
 
-Welcome to my SharePoint portfolio! Below, you will find a collection of projects I've developed throughout my career as a SharePoint specialist. I have worked on various solutions, including intranet portals, financial systems, voting systems, and corporate request management, utilizing tools like SharePoint Online, SPFx, React, TypeScript, Power Automate, and more.
+A bilingual (EN/ES), static personal portfolio for a Senior Software Engineer &
+SharePoint developer. Hero, experience timeline, filterable project grid with
+image modals, animated stats, dark mode, and a working contact form — all with
+no build step.
 
----
-
-## 🚀 Featured Projects
-
-### 1. **Corporate Intranet Portal**
-- **Description**: Migrated a legacy intranet to SharePoint, leveraging SPFx, React, and TypeScript to enable role-based content management and scalable deployment.
-- **Technologies Used**: SharePoint Online, SPFx, React, TypeScript.
-- **Features**:
-  - Role-based content management system.
-  - Scalable deployment for growing companies.
-  - Integration with SharePoint Online for seamless document management.
+**Live:** open `index.html` in any browser.
 
 ---
 
-### 2. **Financial Operations Management**
-- **Description**: Developed a SharePoint-based system for managing financial operations using JavaScript, CSS, HTML for web components, and Power Automate for document creation and approvals.
-- **Technologies Used**: SharePoint Online, JavaScript, CSS, HTML, Power Automate.
-- **Features**:
-  - Secure document management using SharePoint.
-  - Automated document creation and approval workflows with Power Automate.
-  - Custom web components for financial data visualization.
+## 🧱 Tech stack
+
+- Plain **HTML + CSS + vanilla JS** — no framework, no bundler.
+- `IntersectionObserver` for scroll reveals, scroll-spy, and stat count-ups.
+- **Formspree** for the contact form (AJAX submit).
+- Images served as **WebP**; the modal gallery injects screenshots on demand.
+- Dark mode and language preference persisted in `localStorage`.
+
+## 📂 Structure
+
+| File | Purpose |
+|------|---------|
+| `index.html` | All markup — nav, hero, stats, experience, projects, skills, contact, modal |
+| `style.css`  | Styles, dark mode, responsive breakpoint (768px), print & reduced-motion |
+| `script.js`  | Modal, language toggle, dark mode, filters, reveal/stat animations, form |
+| `images/`    | Project thumbnails (`projectN.webp`) and modal screenshots (`projectN.M.webp`) |
+| `docs/`      | Downloadable CV (PDF) |
+
+## ▶️ Running locally
+
+No dependencies are required to view the site — just open `index.html`.
+
+For a local server (matches production paths) and the Playwright test tooling:
+
+```bash
+npm install          # dev tooling: serve, @playwright/test, sharp
+npx serve .          # serves the site at http://localhost:3000
+```
+
+## 🖼️ Optimizing images
+
+Screenshots are stored as WebP. To re-generate from source PNGs, `sharp` is the
+image pipeline (see commit history for the conversion approach).
 
 ---
 
-### 3. **Company Voting System**
-- **Description**: Designed a secure voting system using SharePoint, JavaScript, and Bootstrap, implementing real-time reporting and encrypted voting processes.
-- **Technologies Used**: SharePoint Online, JavaScript, Bootstrap.
-- **Features**:
-  - Secure, encrypted voting system.
-  - Real-time reporting for votes.
-  - Customizable to fit various company needs.
+## 🚀 Featured projects
 
----
-
-### 4. **Corporate Requests System**
-- **Description**: Created a ticketing system for managing pricing offers and product requests, integrated with Power Automate for approvals and Excel exports.
-- **Technologies Used**: SharePoint Online, Power Automate, Excel.
-- **Features**:
-  - Automated approval workflows using Power Automate.
-  - Excel export functionality for easy data manipulation.
-  - Ticket management for pricing offers and product requests.
-
----
-
-## 🛠️ Skills
-
-- **Front-End Development**: SPFx, React, TypeScript.
-- **Automation**: Power Automate, Flows.
-- **Content Management**: SharePoint Online, Site Design, Lists, and Libraries.
-
----
+- **Future You – Learning Platform** (AT&T · Omnicom) — SPFx / React / TypeScript
+- **Self Nomination Portal** (AT&T · Omnicom) — Power Apps / Power Automate
+- **Corporate Intranet Portal** — SPFx migration of a legacy intranet
+- **P10 Intranet Portal** (P10 Holdings · SIIMPL) — real-time stock ticker
+- **Financial Operations Management** — SharePoint + Power Automate approvals
+- **Company Voting System** — secure, encrypted voting with real-time reporting
+- **Corporate Requests System** — ticketing with Power Automate & Excel export
 
 ## 📬 Contact
 
-If you have any questions or would like to collaborate on a project, feel free to reach out:
-
 - [LinkedIn](https://www.linkedin.com/in/jaircoronadoalbarracin/)
 - [Email](mailto:jairyesidk@gmail.com)
-
----
-
-Thank you for visiting my portfolio! 😊
