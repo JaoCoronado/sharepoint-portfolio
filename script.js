@@ -1,43 +1,43 @@
 // ── Modal images map ──
 const projectImages = {
   'project1-images': [
-    'images/project1.1.png',
-    'images/project1.2.png',
-    'images/project1.3.png',
-    'images/project1.4.png',
+    'images/project1.1.webp',
+    'images/project1.2.webp',
+    'images/project1.3.webp',
+    'images/project1.4.webp',
   ],
   'project2-images': [
-    'images/project2.1.png',
-    'images/project2.2.png',
-    'images/project2.3.png',
-    'images/project2.4.png',
-    'images/project2.5.png',
+    'images/project2.1.webp',
+    'images/project2.2.webp',
+    'images/project2.3.webp',
+    'images/project2.4.webp',
+    'images/project2.5.webp',
   ],
   'project3-images': [
-    'images/project3.1.png',
-    'images/project3.2.png',
-    'images/project3.3.png',
-    'images/project3.4.png',
-    'images/project3.5.png',
-    'images/project3.6.png',
-    'images/project3.7.png',
-    'images/project3.8.png',
-    'images/project3.9.png',
+    'images/project3.1.webp',
+    'images/project3.2.webp',
+    'images/project3.3.webp',
+    'images/project3.4.webp',
+    'images/project3.5.webp',
+    'images/project3.6.webp',
+    'images/project3.7.webp',
+    'images/project3.8.webp',
+    'images/project3.9.webp',
   ],
   'project4-images': [
-    'images/project4.1.png',
-    'images/project4.2.png',
-    'images/project4.3.png',
-    'images/project4.4.png',
-    'images/project4.5.png',
-    'images/project4.6.png',
-    'images/project4.7.png',
-    'images/project4.8.png',
+    'images/project4.1.webp',
+    'images/project4.2.webp',
+    'images/project4.3.webp',
+    'images/project4.4.webp',
+    'images/project4.5.webp',
+    'images/project4.6.webp',
+    'images/project4.7.webp',
+    'images/project4.8.webp',
   ],
   'project5-images': [
-    'images/project5.1.png',
-    'images/project5.2.png',
-    'images/project5.3.png',
+    'images/project5.1.webp',
+    'images/project5.2.webp',
+    'images/project5.3.webp',
   ],
   'project6-images': [
     'images/project6.1.svg',
@@ -241,10 +241,12 @@ window.openModal = function (projectId) {
   modalContent.innerHTML = '';
   const images = projectImages[projectId];
   if (images && images.length > 0) {
-    images.forEach((src) => {
+    images.forEach((src, i) => {
       const img = document.createElement('img');
       img.src = src;
-      img.alt = 'Project screenshot';
+      img.alt = 'Project screenshot ' + (i + 1) + ' of ' + images.length;
+      img.loading = 'lazy';
+      img.decoding = 'async';
       modalContent.appendChild(img);
     });
   } else {
