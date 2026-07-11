@@ -1,6 +1,22 @@
 /* ── Reset & Variables ── */
 *, *::before, *::after { box-sizing: border-box; }
 
+/* ── Self-hosted fonts (variable, latin subset) ── */
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("fonts/space-grotesk.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("fonts/jetbrains-mono.woff2") format("woff2");
+}
+
 :root {
   --bg:              #f4f6f9;
   --bg-alt:          #ffffff;
@@ -19,7 +35,8 @@
   --timeline-line:   #dce8f7;
   --dot-employee:    #0078d4;
   --dot-freelance:   #7c3aed;
-  --dot-current:     #0078d4;
+  --dot-current:     #10b981;
+  --dot-current-glow: rgba(16,185,129,0.45);
   --badge-bg:        #e8f4fd;
   --badge-color:     #0056a3;
   --skill-bg:        #f0f7ff;
@@ -58,6 +75,7 @@ body.dark {
   --dot-employee:    #60a5fa;
   --dot-freelance:   #a78bfa;
   --dot-current:     #34d399;
+  --dot-current-glow: rgba(52,211,153,0.5);
   --badge-bg:        #1e2d45;
   --badge-color:     #93c5fd;
   --skill-bg:        #1a2538;
@@ -517,7 +535,7 @@ button:focus-visible,
 
 .timeline-dot.current {
   background: var(--dot-current);
-  box-shadow: 0 0 0 2px var(--dot-current), 0 0 12px rgba(0,120,212,0.4);
+  box-shadow: 0 0 0 2px var(--dot-current), 0 0 12px var(--dot-current-glow);
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
@@ -527,8 +545,8 @@ button:focus-visible,
 }
 
 @keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 2px var(--dot-current), 0 0 8px rgba(0,120,212,0.3); }
-  50%       { box-shadow: 0 0 0 4px var(--dot-current), 0 0 16px rgba(0,120,212,0.5); }
+  0%, 100% { box-shadow: 0 0 0 2px var(--dot-current), 0 0 8px var(--dot-current-glow); }
+  50%       { box-shadow: 0 0 0 4px var(--dot-current), 0 0 16px var(--dot-current-glow); }
 }
 
 .timeline-content {
