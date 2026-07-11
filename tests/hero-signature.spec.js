@@ -43,7 +43,7 @@ test.describe('Hero signature — coral rule', () => {
       return { content: s.content, width: s.width, animName: s.animationName };
     });
     expect(info.content).not.toBe('none');
-    expect(info.width).toBe('48px');
+    expect(info.width).toBe('96px');
     expect(info.animName).toBe('heroRule');
   });
 });

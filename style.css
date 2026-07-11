@@ -302,7 +302,7 @@ body {
 .hero-name::after {
   content: "";
   display: block;
-  width: 48px;
+  width: 96px;
   height: 3px;
   margin: 14px auto 0;
   border-radius: 2px;
