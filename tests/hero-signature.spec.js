@@ -34,3 +34,16 @@ test.describe('Hero signature — reduced motion', () => {
     await context.close();
   });
 });
+
+test.describe('Hero signature — coral rule', () => {
+  test('a coral rule renders under the hero name and draws in', async ({ page }) => {
+    await page.goto('/');
+    const info = await page.locator('.hero-name').evaluate((el) => {
+      const s = getComputedStyle(el, '::after');
+      return { content: s.content, width: s.width, animName: s.animationName };
+    });
+    expect(info.content).not.toBe('none');
+    expect(info.width).toBe('48px');
+    expect(info.animName).toBe('heroRule');
+  });
+});

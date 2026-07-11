@@ -280,6 +280,35 @@ body {
   }
 }
 
+/* Coral signature rule under the name (permanent element; drawn under .js) */
+.hero-name::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 14px auto 0;
+  border-radius: 2px;
+  background: var(--signal);
+}
+
+@keyframes heroRule {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.js .hero-name::after {
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: heroRule 0.5s var(--ease-out) 180ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .hero-name::after {
+    animation-name: none !important;
+    transform: scaleX(1) !important;
+  }
+}
+
 /* ── Interaction polish: press feedback + visible keyboard focus ── */
 .btn-primary:active,
 .btn-secondary:active,
