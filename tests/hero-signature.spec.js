@@ -39,12 +39,19 @@ test.describe('Hero signature — coral rule', () => {
   test('a coral rule renders under the hero name and draws in', async ({ page }) => {
     await page.goto('/');
     const info = await page.locator('.hero-name').evaluate((el) => {
-      const s = getComputedStyle(el, '::after');
-      return { content: s.content, width: s.width, animName: s.animationName };
+      const after = getComputedStyle(el, '::after');
+      return {
+        content: after.content,
+        afterWidth: parseFloat(after.width),
+        nameWidth: el.clientWidth,
+        animName: after.animationName,
+      };
     });
     expect(info.content).not.toBe('none');
-    expect(info.width).toBe('96px');
     expect(info.animName).toBe('heroRule');
+    // Responsive: the coral rule spans the full width of the name at any viewport
+    expect(info.afterWidth).toBeGreaterThan(150);
+    expect(Math.abs(info.afterWidth - info.nameWidth)).toBeLessThan(2);
   });
 });
 
