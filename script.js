@@ -226,11 +226,11 @@ const translations = {
 const placeholders = {
   en: {
     'form-name':    'Your name',
-    'form-message': 'Tell me about your project or opportunity...',
+    'form-message': 'Tell me about your project or opportunity…',
   },
   es: {
     'form-name':    'Tu nombre',
-    'form-message': 'Cuéntame sobre tu proyecto u oportunidad...',
+    'form-message': 'Cuéntame sobre tu proyecto u oportunidad…',
   },
 };
 
@@ -238,7 +238,7 @@ const messages = {
   en: {
     sending: 'Sending…',
     submit:  'Send Message',
-    success: "Message sent! I'll get back to you soon.",
+    success: 'Message sent! I’ll get back to you soon.',
     error:   'Something went wrong. Please email me directly.',
   },
   es: {
@@ -255,12 +255,14 @@ window.openModal = function (projectId) {
   const modalContent = document.getElementById('modal-content');
   window._modalLastFocused = document.activeElement;
   modalContent.innerHTML = '';
+  const titleEl = document.getElementById(projectId.replace('-images', '-title'));
+  const label = titleEl ? titleEl.textContent.trim() : 'Project';
   const images = projectImages[projectId];
   if (images && images.length > 0) {
     images.forEach((src, i) => {
       const img = document.createElement('img');
       img.src = src;
-      img.alt = 'Project screenshot ' + (i + 1) + ' of ' + images.length;
+      img.alt = label + ' — screenshot ' + (i + 1) + ' of ' + images.length;
       img.loading = 'lazy';
       img.decoding = 'async';
       modalContent.appendChild(img);
@@ -268,15 +270,19 @@ window.openModal = function (projectId) {
   } else {
     modalContent.innerHTML = '<p style="padding:20px;color:var(--text-muted)">No additional images available.</p>';
   }
+  modal.setAttribute('aria-label', label + ' screenshots');
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => modal.classList.add('open'));
   const closeBtn = modal.querySelector('.close');
   if (closeBtn) closeBtn.focus();
 };
 
 window.closeModal = function () {
-  document.getElementById('modal').style.display = 'none';
+  const modal = document.getElementById('modal');
+  modal.classList.remove('open');
   document.body.style.overflow = '';
+  setTimeout(() => { modal.style.display = 'none'; }, 200);
   if (window._modalLastFocused && window._modalLastFocused.focus) {
     window._modalLastFocused.focus();
   }
@@ -408,6 +414,15 @@ document.addEventListener('DOMContentLoaded', function () {
   cards.forEach((card) => {
     card.classList.add('card-pre-animate');
     cardObserver.observe(card);
+    // Keyboard accessibility: the card acts as a button that opens the modal
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
   });
 
   // ── IntersectionObserver: timeline & skill reveals ──
