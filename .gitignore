@@ -10,3 +10,8 @@ screenshots/
 .DS_Store
 Thumbs.db
 *.log
+
+# Local tooling & internal planning docs (kept on disk, out of the repo)
+CLAUDE.md
+.claude/
+docs/superpowers/
