@@ -309,6 +309,20 @@ body {
   }
 }
 
+/* Stats bar — final entrance beat (count-up logic in script.js is unchanged) */
+.js .stats-bar {
+  opacity: 0;
+  animation: heroRise 0.6s var(--ease-out) 560ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .stats-bar {
+    animation-name: none !important;
+    animation-delay: 0s !important;
+    opacity: 1 !important;
+  }
+}
+
 /* ── Interaction polish: press feedback + visible keyboard focus ── */
 .btn-primary:active,
 .btn-secondary:active,

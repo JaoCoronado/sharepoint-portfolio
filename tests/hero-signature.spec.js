@@ -47,3 +47,18 @@ test.describe('Hero signature — coral rule', () => {
     expect(info.animName).toBe('heroRule');
   });
 });
+
+test.describe('Hero signature — stats beat', () => {
+  test('stats bar fades in as the final beat', async ({ page }) => {
+    await page.goto('/');
+    const animName = await page.locator('.stats-bar').evaluate(
+      (el) => getComputedStyle(el).animationName
+    );
+    expect(animName).toBe('heroRise');
+    await page.waitForTimeout(1400);
+    const opacity = await page.locator('.stats-bar').evaluate(
+      (el) => getComputedStyle(el).opacity
+    );
+    expect(Number(opacity)).toBeGreaterThan(0.99);
+  });
+});
