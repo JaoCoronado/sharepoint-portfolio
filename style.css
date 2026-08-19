@@ -70,15 +70,25 @@
   /* ── Text on dark surfaces (hero, footer) ──────────────────────── */
   --on-dark:    #ffffff;   /* 17.71:1 on --ink-900 */
   --on-dark-2:  #c4c4c9;   /* 10.20:1 on --ink-900 */
-  --on-dark-3:  #9a9aa1;   /*  6.34:1 on --ink-900 */
+  /* Lightened from #9a9aa1 while the hero was teal, where the old value came
+     to 4.49:1 — short of AA by a hundredth. The navy hero no longer needs the
+     help, but the extra margin costs nothing and is kept. */
+  --on-dark-3:  #a1a1a8;   /*  6.75:1 on --ink-900, 7.50:1 on --bg-hero */
   --on-dark-line:   rgba(255,255,255,0.28);
   --on-dark-fill:   rgba(255,255,255,0.10);
   --on-dark-fill-h: rgba(255,255,255,0.18);
 
   /* ── Surface roles that cannot be derived from the ink scale ───── */
   --bg-nav:    rgba(255,255,255,0.92);
-  --bg-hero:   var(--ink-900);
-  --bg-footer: var(--ink-900);
+  /* The deep pair of SharePoint's Blue theme, which the docs pair with white.
+     A teal hero was tried first and failed for a reason worth recording: with
+     a teal ground the teal accent separated from it by only 2.36:1, so the
+     signature rule and the CTA stopped reading as accents and the whole hero
+     collapsed into one green mass. Navy is a different hue family, so the
+     accent does its job again — 3.62:1 — while both stay inside the
+     Microsoft palette. Dark mode keeps a teal hero, where it works. */
+  --bg-hero:   #010B2F;
+  --bg-footer: #010B2F;
 
   /* ── Elevation ─────────────────────────────────────────────────── */
   --shadow-1: 0 1px 2px rgba(24,24,27,0.06);
@@ -199,8 +209,10 @@ body.dark {
   --status-current-glow: rgba(74,222,128,0.35);
 
   --bg-nav:    rgba(13,13,15,0.92);
-  --bg-hero:   var(--ink-950);
-  --bg-footer: var(--ink-950);
+  /* One step deeper than the light-mode hero, mirroring how --ink-950 sits
+     below --ink-900, so the hero still recedes from the page in dark mode. */
+  --bg-hero:   #00272a;
+  --bg-footer: #00272a;
 
   --shadow-1: 0 1px 2px rgba(0,0,0,0.40);
   --shadow-2: 0 4px 16px rgba(0,0,0,0.50);
@@ -503,21 +515,29 @@ button:focus-visible,
   outline-offset: var(--space-1);
 }
 
+/* Lives only in the hero. The hairline was added when the hero was teal and
+   the fill separated from it by just 2.36:1, under the 3:1 WCAG asks of a
+   non-text control's boundary; the navy hero now clears that on its own at
+   3.62:1. It stays because --shadow-2 is a dark shadow that does nothing on
+   a dark ground, so this is the only edge the button has, and because it
+   matches --border-2 on .btn-secondary, keeping the three buttons one row. */
 .btn-primary {
   background: var(--accent);
   color: var(--accent-on);
   padding: var(--space-3) var(--space-8);
   border-radius: var(--radius-md);
+  border: var(--border-2) solid var(--on-dark-line);
   font-weight: var(--weight-bold);
   font-size: var(--text-base);
   text-decoration: none;
-  transition: transform var(--dur-fast), box-shadow var(--dur-fast);
+  transition: transform var(--dur-fast), box-shadow var(--dur-fast), border-color var(--dur-fast);
   box-shadow: var(--shadow-2);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-3);
+  border-color: var(--on-dark);
 }
 
 .btn-secondary {
