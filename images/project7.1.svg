@@ -18,7 +18,7 @@
     <rect x="458" y="316" width="350" height="40" rx="8" fill="rgba(255,255,255,0.12)"/>
   </g>
   <!-- submit -->
-  <rect x="92" y="392" width="200" height="46" rx="10" fill="#ff6a3d"/>
-  <rect x="120" y="410" width="144" height="10" rx="5" fill="rgba(255,255,255,0.9)"/>
+  <rect x="92" y="392" width="200" height="46" rx="10" fill="#8ae7ed"/>
+  <rect x="120" y="410" width="144" height="10" rx="5" fill="#003a3d"/>
   <text x="92" y="466" font-family="ui-monospace,Consolas,monospace" font-size="14" letter-spacing="1.5" fill="rgba(255,255,255,0.8)">ENROLLMENT · POWER APPS</text>
 </svg>

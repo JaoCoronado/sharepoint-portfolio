@@ -250,8 +250,8 @@ test.describe('accent', () => {
         total++;
         const cs = getComputedStyle(el);
         const paint = `${cs.color} ${cs.backgroundColor} ${cs.borderTopColor}`;
-        // --accent #ff6a3d and --accent-text #c4400f
-        if (/rgb\(255, 106, 61\)|rgb\(196, 64, 15\)/.test(paint)) accented++;
+        // --accent #007780 (SharePoint themePrimary) and --accent-text #00676e
+        if (/rgb\(0, 119, 128\)|rgb\(0, 103, 110\)/.test(paint)) accented++;
       });
       return (accented / total) * 100;
     });

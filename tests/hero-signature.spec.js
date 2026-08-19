@@ -35,8 +35,8 @@ test.describe('Hero signature — reduced motion', () => {
   });
 });
 
-test.describe('Hero signature — coral rule', () => {
-  test('a coral rule renders under the hero name and draws in', async ({ page }) => {
+test.describe('Hero signature — accent rule', () => {
+  test('an accent rule renders under the hero name and draws in', async ({ page }) => {
     await page.goto('/');
     const info = await page.locator('.hero-name').evaluate((el) => {
       const after = getComputedStyle(el, '::after');
@@ -49,7 +49,7 @@ test.describe('Hero signature — coral rule', () => {
     });
     expect(info.content).not.toBe('none');
     expect(info.animName).toBe('heroRule');
-    // Responsive: the coral rule spans the full width of the name at any viewport
+    // Responsive: the accent rule spans the full width of the name at any viewport
     expect(info.afterWidth).toBeGreaterThan(150);
     expect(Math.abs(info.afterWidth - info.nameWidth)).toBeLessThan(2);
   });

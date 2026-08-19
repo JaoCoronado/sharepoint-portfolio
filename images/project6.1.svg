@@ -15,7 +15,7 @@
     <rect x="170" y="184" width="300" height="12" rx="6" fill="rgba(255,255,255,0.5)"/>
     <rect x="170" y="206" width="200" height="10" rx="5" fill="rgba(255,255,255,0.28)"/>
     <rect x="600" y="192" width="180" height="10" rx="5" fill="rgba(255,255,255,0.2)"/>
-    <rect x="600" y="192" width="120" height="10" rx="5" fill="#ff6a3d"/>
+    <rect x="600" y="192" width="120" height="10" rx="5" fill="#8ae7ed"/>
   </g>
   <g transform="translate(0,98)">
     <rect x="92" y="160" width="716" height="82" rx="12" fill="rgba(255,255,255,0.12)"/>
@@ -23,7 +23,7 @@
     <rect x="170" y="184" width="260" height="12" rx="6" fill="rgba(255,255,255,0.5)"/>
     <rect x="170" y="206" width="180" height="10" rx="5" fill="rgba(255,255,255,0.28)"/>
     <rect x="600" y="192" width="180" height="10" rx="5" fill="rgba(255,255,255,0.2)"/>
-    <rect x="600" y="192" width="70" height="10" rx="5" fill="#ff6a3d"/>
+    <rect x="600" y="192" width="70" height="10" rx="5" fill="#8ae7ed"/>
   </g>
   <g transform="translate(0,196)">
     <rect x="92" y="160" width="716" height="82" rx="12" fill="rgba(255,255,255,0.12)"/>
@@ -31,7 +31,7 @@
     <rect x="170" y="184" width="320" height="12" rx="6" fill="rgba(255,255,255,0.5)"/>
     <rect x="170" y="206" width="220" height="10" rx="5" fill="rgba(255,255,255,0.28)"/>
     <rect x="600" y="192" width="180" height="10" rx="5" fill="rgba(255,255,255,0.2)"/>
-    <rect x="600" y="192" width="160" height="10" rx="5" fill="#ff6a3d"/>
+    <rect x="600" y="192" width="160" height="10" rx="5" fill="#8ae7ed"/>
   </g>
   <text x="92" y="466" font-family="ui-monospace,Consolas,monospace" font-size="14" letter-spacing="1.5" fill="rgba(255,255,255,0.8)">LEARNING PATHS · SPFX</text>
 </svg>

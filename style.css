@@ -50,12 +50,18 @@
      One hue, four roles. It carries technology and actions: tech chips,
      skill badges, stat figures, filters, CTAs. Metadata stays on the ink
      scale (periods, employment type, client lines), so the colour always
-     means the same thing wherever it appears. */
-  --accent:        #ff6a3d;  /* solid fills and rules                   */
-  --accent-on:     #2a1206;  /* text on --accent      — 6.22:1          */
-  --accent-text:   #c4400f;  /* accent as text        — 5.14:1 on white */
-  --accent-soft:   #fff0eb;  /* tinted chip surface   — 4.63:1 w/ text  */
-  --accent-ring:   rgba(255,106,61,0.22);
+     means the same thing wherever it appears.
+
+     The hue is SharePoint's own: the Teal theme from the SharePoint site
+     theming palette, where themePrimary is #007780. Values below map onto
+     that palette's tokens rather than being invented, so the portfolio
+     reads as part of the platform it is about.
+     https://learn.microsoft.com/sharepoint/dev/declarative-customization/site-theming/sharepoint-site-theming-json-schema */
+  --accent:        #007780;  /* themePrimary — solid fills and rules    */
+  --accent-on:     #ffffff;  /* text on --accent      — 5.32:1          */
+  --accent-text:   #00676e;  /* themeDarkAlt as text  — 6.63:1 on white */
+  --accent-soft:   #d4fbff;  /* themeLighterAlt chip  — 6.01:1 w/ text  */
+  --accent-ring:   rgba(0,119,128,0.22);
 
   /* ── Semantic status — the only other hue in the system ────────── */
   --status-current:      #15803d;                 /* 5.02:1 on white */
@@ -178,11 +184,16 @@ body.dark {
   --ink-900:  #ededf0;
   --ink-950:  #050507;
 
-  --accent:      #ff7d54;
-  --accent-on:   #2a1206;   /* 7.00:1 on --accent */
-  --accent-text: #ff9270;   /* 8.89:1 on --ink-50 */
-  --accent-soft: #2a1b16;
-  --accent-ring: rgba(255,125,84,0.26);
+  /* SharePoint publishes no dark palette — the v2.0.0 theme format only
+     supports displayMode "light" and ships an empty secondaryColors.dark.
+     So the accent flips to #51AEB2, the accent the built-in Dark Teal theme
+     uses on its #292929 surface, and --accent-on inverts with it: at this
+     lightness the accent carries dark text, not white. */
+  --accent:      #51AEB2;   /* Dark Teal theme accent */
+  --accent-on:   #003a3d;   /* themeDarker — 4.84:1 on --accent */
+  --accent-text: #51AEB2;   /* 7.43:1 on --ink-50 */
+  --accent-soft: #0e2f31;
+  --accent-ring: rgba(81,174,178,0.26);
 
   --status-current:      #4ade80;
   --status-current-glow: rgba(74,222,128,0.35);

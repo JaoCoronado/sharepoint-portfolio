@@ -22,8 +22,8 @@
       <circle cx="132" cy="175" r="18" fill="rgba(255,255,255,0.25)"/>
       <rect x="168" y="160" width="260" height="12" rx="6" fill="rgba(255,255,255,0.5)"/>
       <rect x="168" y="182" width="120" height="10" rx="5" fill="rgba(255,255,255,0.28)"/>
-      <rect x="648" y="160" width="120" height="30" rx="15" fill="#ff6a3d"/>
-      <rect x="672" y="171" width="72" height="8" rx="4" fill="rgba(255,255,255,0.95)"/>
+      <rect x="648" y="160" width="120" height="30" rx="15" fill="#8ae7ed"/>
+      <rect x="672" y="171" width="72" height="8" rx="4" fill="#003a3d"/>
     </g>
     <g transform="translate(0,172)">
       <rect x="92" y="140" width="716" height="70" rx="12" fill="rgba(255,255,255,0.12)"/>
