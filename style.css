@@ -755,11 +755,17 @@ button:focus-visible,
   gap: var(--space-1);
 }
 
+/* The badge below carries padding and a border, so its label sits inset from
+   the flex-end edge while this plain text sits flush against it — the two
+   strings end 9px apart even though their boxes align. Matching the badge's
+   own inset puts both labels in the same optical column. Derived from the
+   badge tokens rather than hardcoded, so it tracks any change to them. */
 .timeline-period {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--text-muted);
   white-space: nowrap;
+  padding-right: calc(var(--space-2) + var(--border-1));
 }
 
 .timeline-badge {
