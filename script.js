@@ -514,4 +514,22 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') window.closeModal();
   });
+
+  // ── Analytics: count CV downloads as an event ──
+  // The link carries both `download` and `target="_blank"`, so this document
+  // is never unloaded and an ordinary call has time to finish — no beacon
+  // needed. The guard is for the other race: count.js is async, so a fast
+  // click can land before it exists, and an adblocker may mean it never does.
+  const cvLink = document.querySelector('.btn-cv');
+  if (cvLink) {
+    cvLink.addEventListener('click', function () {
+      if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+        window.goatcounter.count({
+          path:  'cv-download',
+          title: 'CV download',
+          event: true,
+        });
+      }
+    });
+  }
 });
