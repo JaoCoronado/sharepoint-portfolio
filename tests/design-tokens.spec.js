@@ -102,10 +102,15 @@ test.describe('form affordance', () => {
         return `${cs.borderTopColor}|${cs.backgroundColor}|${cs.boxShadow}`;
       });
 
+      // The fields animate border, background and shadow over --dur-fast, so a
+      // read right after hover or focus can land mid-transition. Wait it out.
+      const settle = () => page.waitForTimeout(300);
       const rest = await read();
       await el.hover();
+      await settle();
       const hovered = await read();
       await el.focus();
+      await settle();
       const focused = await read();
 
       expect(hovered, `${selector} does not react to hover`).not.toBe(rest);
