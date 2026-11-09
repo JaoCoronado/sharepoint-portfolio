@@ -823,6 +823,44 @@ button:focus-visible,
   margin-bottom: var(--space-2);
 }
 
+/* Client engagements nested under one employer (Omnicom). The rail on the
+   left groups each client's role, period, bullets and stack. */
+.timeline-engagement {
+  margin-top: var(--space-4);
+  padding-left: var(--space-4);
+  border-left: var(--border-1) solid var(--border-strong);
+}
+
+.timeline-engagement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+/* No badge sits under an engagement period, so the badge inset is not needed. */
+.timeline-engagement-header .timeline-period {
+  padding-right: 0;
+}
+
+.timeline-engagement-client {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semi);
+  line-height: var(--leading-snug);
+  color: var(--text);
+}
+
+.timeline-summary {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  line-height: var(--leading-normal);
+}
+
 /* ── Filter Bar ── */
 .filter-bar {
   display: flex;
@@ -1457,7 +1495,8 @@ footer {
     --timeline-indent: var(--space-6);
   }
 
-  .timeline-header {
+  .timeline-header,
+  .timeline-engagement-header {
     flex-direction: column;
     gap: var(--space-2);
   }

@@ -109,14 +109,53 @@
               <div class="timeline-header">
                 <div class="timeline-info">
                   <h3 class="timeline-company">Omnicom Global Solutions</h3>
-                  <span class="timeline-role" id="exp1-role">Senior Software Engineer</span>
-                  <span class="timeline-client" id="exp1-client">Client: AT&amp;T</span>
                 </div>
                 <div class="timeline-meta">
-                  <span class="timeline-period" id="exp1-period">Jul 2025 – Present</span>
+                  <span class="timeline-period" id="exp1-company-period">Jul 2025 – Present</span>
                   <span class="timeline-badge badge-employee" id="exp1-type">Employee</span>
                 </div>
               </div>
+
+              <div class="timeline-engagement">
+                <div class="timeline-engagement-header">
+                  <div class="timeline-info">
+                    <h4 class="timeline-engagement-client" id="exp1-sw-client">Client: Southwest Airlines</h4>
+                    <span class="timeline-role" id="exp1-sw-role">Senior Software Engineer</span>
+                  </div>
+                  <span class="timeline-period" id="exp1-sw-period">May 2026 – Oct 2026</span>
+                </div>
+                <p class="timeline-summary" id="exp1-sw-desc">Worked on the frontend of a flight booking platform for a major US airline, built on micro frontends with React and TypeScript.</p>
+                <ul class="timeline-bullets">
+                  <li id="exp1-sw-b1">Delivered third-party UI integrations and defect fixes in the booking confirmation flow, responsive across all breakpoints, in coordination with Product, UX and QA</li>
+                  <li id="exp1-sw-b2">Coordinated and published releases of a shared component library through automated semantic-release pipelines consumed by the booking application</li>
+                  <li id="exp1-sw-b3">Improved CI reliability by centralizing visual regression mocks in the shared library, reducing maintenance and flaky test failures</li>
+                  <li id="exp1-sw-b4">Applied AI-assisted workflows with Kiro and Claude Code to analyze tickets and plan implementations, and built a Power Automate flow that routes GitLab MR notifications to Teams for the whole team</li>
+                </ul>
+                <div class="tech-badges">
+                  <span class="badge">React</span>
+                  <span class="badge">TypeScript</span>
+                  <span class="badge">JavaScript</span>
+                  <span class="badge">Micro Frontends</span>
+                  <span class="badge">Kiro</span>
+                  <span class="badge">Claude Code</span>
+                  <span class="badge">GitLab</span>
+                  <span class="badge">Jira</span>
+                  <span class="badge">Jest</span>
+                  <span class="badge">Percy</span>
+                  <span class="badge">Storybook</span>
+                  <span class="badge">Yarn</span>
+                  <span class="badge">Power Automate</span>
+                </div>
+              </div>
+
+              <div class="timeline-engagement">
+                <div class="timeline-engagement-header">
+                  <div class="timeline-info">
+                    <h4 class="timeline-engagement-client" id="exp1-client">Client: AT&amp;T</h4>
+                    <span class="timeline-role" id="exp1-role">Senior Software Engineer</span>
+                  </div>
+                  <span class="timeline-period" id="exp1-period">Jul 2025 – Present</span>
+                </div>
               <ul class="timeline-bullets">
                 <li id="exp1-b1">Automated self-nomination workflows for 10,000+ users, eliminating manual intervention in the annual training cycle</li>
                 <li id="exp1-b2">Resolved critical SharePoint throttling bugs that blocked processing of 1,000+ records in batch operations</li>
@@ -128,6 +167,7 @@
                 <span class="badge">Power Automate</span>
                 <span class="badge">SPFx</span>
                 <span class="badge">SharePoint</span>
+              </div>
               </div>
             </div>
           </div>
@@ -256,6 +296,23 @@
         </div>
 
         <div id="projects-grid" class="projects-grid">
+
+          <div class="project-card" data-tags="react typescript" onclick="openModal('project8-images')">
+            <div class="card-img-wrapper">
+              <img src="images/project8.svg" alt="Flight Booking Platform – abstract booking flow" width="600" height="400" loading="lazy" decoding="async" />
+            </div>
+            <div class="card-body">
+              <span class="card-client" id="card-client-p8">Southwest Airlines · Omnicom</span>
+              <h3 id="project8-title">Flight Booking Platform</h3>
+              <div class="tech-badges">
+                <span class="badge">React</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">Micro Frontends</span>
+                <span class="badge">Percy</span>
+              </div>
+              <p id="project8-desc">Built frontend features for a flight booking platform on a micro frontends architecture, integrating third-party components into the confirmation flow and strengthening visual regression testing in CI. Worked with React and TypeScript, using Kiro and Claude Code to analyze and implement tickets.</p>
+            </div>
+          </div>
 
           <div class="project-card" data-tags="spfx react typescript sharepoint" onclick="openModal('project6-images')">
             <div class="card-img-wrapper">

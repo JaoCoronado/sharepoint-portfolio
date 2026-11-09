@@ -25,7 +25,7 @@ no build step.
 | `style.css`  | Styles, dark mode, responsive breakpoint (768px), print & reduced-motion |
 | `script.js`  | Modal, language toggle, dark mode, filters, reveal/stat animations, form |
 | `images/`    | Project thumbnails (`projectN.webp`) and modal screenshots (`projectN.M.webp`) |
-| `docs/`      | Downloadable CV (PDF) |
+| `docs/`      | Downloadable CV (DOCX and PDF) |
 
 ## ▶️ Running locally
 
@@ -47,6 +47,7 @@ image pipeline (see commit history for the conversion approach).
 
 ## 🚀 Featured projects
 
+- **Flight Booking Platform** (Southwest Airlines · Omnicom) – React / TypeScript / Micro Frontends
 - **Future You – Learning Platform** (AT&T · Omnicom) — SPFx / React / TypeScript
 - **Self Nomination Portal** (AT&T · Omnicom) — Power Apps / Power Automate
 - **Corporate Intranet Portal** — SPFx migration of a legacy intranet

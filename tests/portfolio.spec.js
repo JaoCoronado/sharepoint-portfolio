@@ -17,9 +17,9 @@ test.describe('Portfolio – Project Cards', () => {
     await page.waitForTimeout(600);
   });
 
-  test('renders 7 project cards', async ({ page }) => {
+  test('renders 8 project cards', async ({ page }) => {
     const cards = page.locator('.project-card');
-    await expect(cards).toHaveCount(7);
+    await expect(cards).toHaveCount(8);
   });
 
   test('each card has a title and image', async ({ page }) => {
@@ -31,6 +31,11 @@ test.describe('Portfolio – Project Cards', () => {
       await expect(title).not.toBeEmpty();
       await expect(img).toBeVisible();
     }
+  });
+
+  test('Flight booking card is present', async ({ page }) => {
+    const title = page.locator('#project8-title');
+    await expect(title).toContainText('Flight Booking');
   });
 
   test('Future You card is present', async ({ page }) => {
@@ -57,16 +62,16 @@ test.describe('Portfolio – Filter Bar', () => {
     const hidden = page.locator('.project-card.hidden');
     // SPFx projects: project6 (Future You) and project4 (Corporate Intranet)
     await expect(visible).toHaveCount(2);
-    await expect(hidden).toHaveCount(5);
+    await expect(hidden).toHaveCount(6);
   });
 
-  test('All filter restores all 7 cards', async ({ page }) => {
+  test('All filter restores all 8 cards', async ({ page }) => {
     await page.click('.filter-btn[data-filter="spfx"]');
     await page.waitForTimeout(200);
     await page.click('.filter-btn[data-filter="all"]');
     await page.waitForTimeout(200);
     const cards = page.locator('.project-card:not(.hidden)');
-    await expect(cards).toHaveCount(7);
+    await expect(cards).toHaveCount(8);
   });
 
   test('active class is applied to clicked filter button', async ({ page }) => {
