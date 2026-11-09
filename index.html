@@ -6,7 +6,7 @@
     <!-- Mark JS as available so reveal animations only hide content when JS can un-hide it -->
     <script>document.documentElement.classList.add('js');</script>
     <title>Jair Y. Coronado A. · SharePoint Developer</title>
-    <meta name="description" content="Senior Software Engineer & SharePoint Developer — SPFx, Power Platform, React, TypeScript. 6+ years building Microsoft 365 solutions for enterprise clients." />
+    <meta name="description" content="Senior Software Engineer & SharePoint Developer. SPFx, Power Platform, React, TypeScript. 6+ years building Microsoft 365 solutions for enterprise clients." />
 
     <!-- Open Graph / Social sharing -->
     <meta property="og:type"        content="website" />
@@ -29,35 +29,37 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main" id="skip-link">Skip to content</a>
 
     <!-- ── Sticky Nav ── -->
-    <nav class="main-nav" id="mainNav">
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
       <a href="#about" class="nav-logo">Jair Y. Coronado A.</a>
       <ul class="nav-links">
         <li><a href="#about"      class="nav-link" data-section="about"       id="nav-about">About</a></li>
-        <li><a href="#experience" class="nav-link" data-section="experience"  id="nav-experience">Experience</a></li>
         <li><a href="#projects"   class="nav-link" data-section="projects"    id="nav-projects">Projects</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience"  id="nav-experience">Experience</a></li>
         <li><a href="#skills"     class="nav-link" data-section="skills"      id="nav-skills">Skills</a></li>
         <li><a href="#contact"    class="nav-link" data-section="contact"     id="nav-contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button id="languageToggle" class="lang-btn">Español</button>
-        <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode">
+        <button id="languageToggle" class="lang-btn" lang="es">Español</button>
+        <button id="themeToggle" class="theme-btn" aria-label="Dark mode" aria-pressed="false">
           <span id="themeIcon">☀</span>
         </button>
       </div>
     </nav>
 
+    <main id="main">
     <!-- ── Hero / About ── -->
     <section id="about" class="hero-section">
       <div class="hero-inner">
-        <span class="hero-badge" id="hero-badge">Available for freelance projects</span>
+        <span class="hero-badge" id="hero-badge">Open to senior roles · freelance</span>
         <h1 class="hero-name" id="hero-name">Jair Y. Coronado A.</h1>
         <p class="hero-title" id="hero-title">Senior Software Engineer · SharePoint Developer</p>
         <p class="hero-location" id="hero-location">Bogotá, Colombia &nbsp;·&nbsp; English B2</p>
         <p class="hero-tagline" id="hero-tagline">
-          6+ years building Microsoft 365 solutions for enterprise clients —
-          SPFx, Power Platform, React &amp; TypeScript.
+          6+ years building Microsoft 365 and frontend solutions for enterprise clients like AT&amp;T and Southwest Airlines.
+          SPFx, Power Platform, React, TypeScript and AI-assisted development.
         </p>
         <div class="hero-cta">
           <a href="#projects" class="btn-primary" id="hero-cta-projects">View Projects</a>
@@ -95,8 +97,165 @@
       </div>
     </div>
 
+    <!-- ── Projects ── -->
+    <section id="projects" class="section">
+      <div class="section-container section-container--wide">
+        <h2 class="section-title" id="proj-section-title">Projects</h2>
+
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all" id="filter-all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="spfx" aria-pressed="false">SPFx</button>
+          <button class="filter-btn" data-filter="powerapps" aria-pressed="false">Power Apps</button>
+          <button class="filter-btn" data-filter="powerautomate" aria-pressed="false">Power Automate</button>
+          <button class="filter-btn" data-filter="react" aria-pressed="false">React</button>
+        </div>
+
+        <p class="sr-only" id="filter-status" aria-live="polite"></p>
+
+        <div id="projects-grid" class="projects-grid">
+
+          <div class="project-card" data-tags="react typescript" onclick="openModal('project8-images')">
+            <div class="card-img-wrapper">
+              <img src="images/project8.webp" alt="Flight Booking Platform" width="800" height="494" loading="lazy" decoding="async" />
+            </div>
+            <div class="card-body">
+              <span class="card-client" id="card-client-p8">Southwest Airlines · Omnicom</span>
+              <h3 id="project8-title">Flight Booking Platform</h3>
+              <div class="tech-badges">
+                <span class="badge">React</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">Micro Frontends</span>
+                <span class="badge">Percy</span>
+              </div>
+              <p id="project8-desc">Built frontend features for a flight booking platform on a micro frontends architecture, integrating third-party components into the confirmation flow and strengthening visual regression testing in CI. Worked with React and TypeScript, using Kiro and Claude Code to analyze and implement tickets.</p>
+              <span class="card-cue" aria-hidden="true">View details <span class="card-cue-arrow">→</span></span>
+            </div>
+          </div>
+
+          <div class="project-card" data-tags="spfx react typescript sharepoint" onclick="openModal('project6-images')">
+            <div class="card-img-wrapper">
+              <img src="images/project6.webp" alt="Future You – Learning Platform" width="800" height="285" loading="lazy" decoding="async" />
+            </div>
+            <div class="card-body">
+              <span class="card-client" id="card-client-p6">AT&amp;T · Omnicom</span>
+              <h3 id="project6-title">Future You – Learning Platform</h3>
+              <div class="tech-badges">
+                <span class="badge">SPFx</span>
+                <span class="badge">React</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">SharePoint</span>
+              </div>
+              <p id="project6-desc">Developed an SPFx platform for AT&amp;T enabling personalized learning paths, career growth tracking, and talent retention tools to help collaborators grow within the company.</p>
+              <span class="card-cue" aria-hidden="true">View details <span class="card-cue-arrow">→</span></span>
+            </div>
+          </div>
+
+          <div class="project-card" data-tags="powerapps powerautomate sharepoint" onclick="openModal('project7-images')">
+            <div class="card-img-wrapper">
+              <img src="images/project7.webp" alt="Self Nomination Portal" width="653" height="372" loading="lazy" decoding="async" />
+            </div>
+            <div class="card-body">
+              <span class="card-client" id="card-client-p7">AT&amp;T · Omnicom</span>
+              <h3 id="project7-title">Self Nomination Portal</h3>
+              <div class="tech-badges">
+                <span class="badge">Power Apps</span>
+                <span class="badge">Power Automate</span>
+                <span class="badge">SharePoint</span>
+              </div>
+              <p id="project7-desc">Built a Power Apps solution to track self-nomination workflows for training courses — covering open access enrollment, supervisor review, and HRBP approval stages.</p>
+              <span class="card-cue" aria-hidden="true">View details <span class="card-cue-arrow">→</span></span>
+            </div>
+          </div>
+
+          <div class="project-card" data-tags="spfx react typescript sharepoint" onclick="openModal('project4-images')">
+            <div class="card-img-wrapper">
+              <img src="images/project4.webp" alt="Corporate Intranet Portal" width="1600" height="778" loading="lazy" decoding="async" />
+            </div>
+            <div class="card-body">
+              <span class="card-client" id="card-client-p4">Independent</span>
+              <h3 id="project4-title">Corporate Intranet Portal</h3>
+              <div class="tech-badges">
+                <span class="badge">SPFx</span>
+                <span class="badge">React</span>
+                <span class="badge">TypeScript</span>
+              </div>
+              <p id="project4-desc">Migrated a legacy intranet to SharePoint using SPFx, React, and TypeScript, enabling role-based content management and scalable deployment.</p>
+              <span class="card-cue" aria-hidden="true">View details <span class="card-cue-arrow">→</span></span>
+            </div>
+          </div>
+
+          <div class="project-card" data-tags="js sharepoint" onclick="openModal('project5-images')">
+            <div class="card-img-wrapper">
+              <img src="images/project5.1.webp" alt="P10 Intranet Portal" width="1600" height="719" loading="lazy" decoding="async" />
+            </div>
+            <div class="card-body">
+              <span class="card-client" id="card-client-p5">P10 Holdings · SIIMPL</span>
+              <h3 id="project5-title">P10 Intranet Portal</h3>
+              <div class="tech-badges">
+                <span class="badge">JavaScript</span>
+                <span class="badge">SharePoint</span>
+              </div>
+              <p id="project5-desc">Created an intranet portal for P10 Holdings with real-time stock ticker and SharePoint-based content management.</p>
+              <span class="card-cue" aria-hidden="true">View details <span class="card-cue-arrow">→</span></span>
+            </div>
+          </div>
+
+          <div class="project-card" data-tags="js powerautomate sharepoint" onclick="openModal('project1-images')">
+            <div class="card-img-wrapper">
+              <img src="images/project1.webp" alt="Financial Operations Management" width="1363" height="470" loading="lazy" decoding="async" />
+            </div>
+            <div class="card-body">
+              <span class="card-client" id="card-client-p1">Independent</span>
+              <h3 id="project1-title">Financial Operations Management</h3>
+              <div class="tech-badges">
+                <span class="badge">JavaScript</span>
+                <span class="badge">Power Automate</span>
+                <span class="badge">SharePoint</span>
+              </div>
+              <p id="project1-desc">Developed a SharePoint-based system using JavaScript, CSS, and HTML for web components, Power Automate for document creation and approvals, and SharePoint Online for secure storage.</p>
+              <span class="card-cue" aria-hidden="true">View details <span class="card-cue-arrow">→</span></span>
+            </div>
+          </div>
+
+          <div class="project-card" data-tags="js sharepoint" onclick="openModal('project2-images')">
+            <div class="card-img-wrapper">
+              <img src="images/project2.webp" alt="Company Voting System" width="1313" height="574" loading="lazy" decoding="async" />
+            </div>
+            <div class="card-body">
+              <span class="card-client" id="card-client-p2">Independent</span>
+              <h3 id="project2-title">Company Voting System</h3>
+              <div class="tech-badges">
+                <span class="badge">JavaScript</span>
+                <span class="badge">Bootstrap</span>
+                <span class="badge">SharePoint</span>
+              </div>
+              <p id="project2-desc">Designed a secure voting system using SharePoint, JavaScript, and Bootstrap, implementing real-time reporting and encrypted voting processes.</p>
+              <span class="card-cue" aria-hidden="true">View details <span class="card-cue-arrow">→</span></span>
+            </div>
+          </div>
+
+          <div class="project-card" data-tags="powerautomate sharepoint" onclick="openModal('project3-images')">
+            <div class="card-img-wrapper">
+              <img src="images/project3.webp" alt="Corporate Requests System" width="1301" height="620" loading="lazy" decoding="async" />
+            </div>
+            <div class="card-body">
+              <span class="card-client" id="card-client-p3">Independent</span>
+              <h3 id="project3-title">Corporate Requests System</h3>
+              <div class="tech-badges">
+                <span class="badge">Power Automate</span>
+                <span class="badge">SharePoint</span>
+              </div>
+              <p id="project3-desc">Created a ticketing system for pricing offers and product management, integrated with Power Automate for approvals and Excel exports.</p>
+              <span class="card-cue" aria-hidden="true">View details <span class="card-cue-arrow">→</span></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ── Experience ── -->
-    <section id="experience" class="section">
+    <section id="experience" class="section section-alt">
       <div class="section-container">
         <h2 class="section-title" id="exp-section-title">Experience</h2>
 
@@ -109,14 +268,53 @@
               <div class="timeline-header">
                 <div class="timeline-info">
                   <h3 class="timeline-company">Omnicom Global Solutions</h3>
-                  <span class="timeline-role" id="exp1-role">Senior Software Engineer</span>
-                  <span class="timeline-client" id="exp1-client">Client: AT&amp;T</span>
                 </div>
                 <div class="timeline-meta">
-                  <span class="timeline-period" id="exp1-period">Jul 2025 – Present</span>
+                  <span class="timeline-period" id="exp1-company-period">Jul 2025 – Present</span>
                   <span class="timeline-badge badge-employee" id="exp1-type">Employee</span>
                 </div>
               </div>
+
+              <div class="timeline-engagement">
+                <div class="timeline-engagement-header">
+                  <div class="timeline-info">
+                    <h4 class="timeline-engagement-client" id="exp1-sw-client">Client: Southwest Airlines</h4>
+                    <span class="timeline-role" id="exp1-sw-role">Senior Software Engineer</span>
+                  </div>
+                  <span class="timeline-period" id="exp1-sw-period">May 2026 – Oct 2026</span>
+                </div>
+                <p class="timeline-summary" id="exp1-sw-desc">Worked on the frontend of a flight booking platform for a major US airline, built on micro frontends with React and TypeScript.</p>
+                <ul class="timeline-bullets">
+                  <li id="exp1-sw-b1">Delivered third-party UI integrations and defect fixes in the booking confirmation flow, responsive across all breakpoints, in coordination with Product, UX and QA</li>
+                  <li id="exp1-sw-b2">Coordinated and published releases of a shared component library through automated semantic-release pipelines consumed by the booking application</li>
+                  <li id="exp1-sw-b3">Improved CI reliability by centralizing visual regression mocks in the shared library, reducing maintenance and flaky test failures</li>
+                  <li id="exp1-sw-b4">Applied AI-assisted workflows with Kiro and Claude Code to analyze tickets and plan implementations, and built a Power Automate flow that routes GitLab MR notifications to Teams for the whole team</li>
+                </ul>
+                <div class="tech-badges">
+                  <span class="badge">React</span>
+                  <span class="badge">TypeScript</span>
+                  <span class="badge">JavaScript</span>
+                  <span class="badge">Micro Frontends</span>
+                  <span class="badge">Kiro</span>
+                  <span class="badge">Claude Code</span>
+                  <span class="badge">GitLab</span>
+                  <span class="badge">Jira</span>
+                  <span class="badge">Jest</span>
+                  <span class="badge">Percy</span>
+                  <span class="badge">Storybook</span>
+                  <span class="badge">Yarn</span>
+                  <span class="badge">Power Automate</span>
+                </div>
+              </div>
+
+              <div class="timeline-engagement">
+                <div class="timeline-engagement-header">
+                  <div class="timeline-info">
+                    <h4 class="timeline-engagement-client" id="exp1-client">Client: AT&amp;T</h4>
+                    <span class="timeline-role" id="exp1-role">Senior Software Engineer</span>
+                  </div>
+                  <span class="timeline-period" id="exp1-period">Jul 2025 – Present</span>
+                </div>
               <ul class="timeline-bullets">
                 <li id="exp1-b1">Automated self-nomination workflows for 10,000+ users, eliminating manual intervention in the annual training cycle</li>
                 <li id="exp1-b2">Resolved critical SharePoint throttling bugs that blocked processing of 1,000+ records in batch operations</li>
@@ -128,6 +326,7 @@
                 <span class="badge">Power Automate</span>
                 <span class="badge">SPFx</span>
                 <span class="badge">SharePoint</span>
+              </div>
               </div>
             </div>
           </div>
@@ -243,142 +442,13 @@
       </div>
     </section>
 
-    <!-- ── Projects ── -->
-    <section id="projects" class="section section-alt">
-      <div class="section-container section-container--wide">
-        <h2 class="section-title" id="proj-section-title">Projects</h2>
-
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
-          <button class="filter-btn" data-filter="spfx">SPFx</button>
-          <button class="filter-btn" data-filter="powerapps">Power Apps</button>
-          <button class="filter-btn" data-filter="powerautomate">Power Automate</button>
-        </div>
-
-        <div id="projects-grid" class="projects-grid">
-
-          <div class="project-card" data-tags="spfx react typescript sharepoint" onclick="openModal('project6-images')">
-            <div class="card-img-wrapper">
-              <img src="images/project6.svg" alt="Future You – Learning Platform" width="600" height="400" loading="lazy" decoding="async" />
-            </div>
-            <div class="card-body">
-              <span class="card-client" id="card-client-p6">AT&amp;T · Omnicom</span>
-              <h3 id="project6-title">Future You – Learning Platform</h3>
-              <div class="tech-badges">
-                <span class="badge">SPFx</span>
-                <span class="badge">React</span>
-                <span class="badge">TypeScript</span>
-                <span class="badge">SharePoint</span>
-              </div>
-              <p id="project6-desc">Developed an SPFx platform for AT&amp;T enabling personalized learning paths, career growth tracking, and talent retention tools to help collaborators grow within the company.</p>
-            </div>
-          </div>
-
-          <div class="project-card" data-tags="powerapps powerautomate sharepoint" onclick="openModal('project7-images')">
-            <div class="card-img-wrapper">
-              <img src="images/project7.svg" alt="Self Nomination Portal" width="600" height="400" loading="lazy" decoding="async" />
-            </div>
-            <div class="card-body">
-              <span class="card-client" id="card-client-p7">AT&amp;T · Omnicom</span>
-              <h3 id="project7-title">Self Nomination Portal</h3>
-              <div class="tech-badges">
-                <span class="badge">Power Apps</span>
-                <span class="badge">Power Automate</span>
-                <span class="badge">SharePoint</span>
-              </div>
-              <p id="project7-desc">Built a Power Apps solution to track self-nomination workflows for training courses — covering open access enrollment, supervisor review, and HRBP approval stages.</p>
-            </div>
-          </div>
-
-          <div class="project-card" data-tags="spfx react typescript sharepoint" onclick="openModal('project4-images')">
-            <div class="card-img-wrapper">
-              <img src="images/project4.webp" alt="Corporate Intranet Portal" width="1600" height="778" loading="lazy" decoding="async" />
-            </div>
-            <div class="card-body">
-              <span class="card-client" id="card-client-p4">Independent</span>
-              <h3 id="project4-title">Corporate Intranet Portal</h3>
-              <div class="tech-badges">
-                <span class="badge">SPFx</span>
-                <span class="badge">React</span>
-                <span class="badge">TypeScript</span>
-              </div>
-              <p id="project4-desc">Migrated a legacy intranet to SharePoint using SPFx, React, and TypeScript, enabling role-based content management and scalable deployment.</p>
-            </div>
-          </div>
-
-          <div class="project-card" data-tags="js sharepoint" onclick="openModal('project5-images')">
-            <div class="card-img-wrapper">
-              <img src="images/project5.1.webp" alt="P10 Intranet Portal" width="1600" height="719" loading="lazy" decoding="async" />
-            </div>
-            <div class="card-body">
-              <span class="card-client" id="card-client-p5">P10 Holdings · SIIMPL</span>
-              <h3 id="project5-title">P10 Intranet Portal</h3>
-              <div class="tech-badges">
-                <span class="badge">JavaScript</span>
-                <span class="badge">SharePoint</span>
-              </div>
-              <p id="project5-desc">Created an intranet portal for P10 Holdings with real-time stock ticker and SharePoint-based content management.</p>
-            </div>
-          </div>
-
-          <div class="project-card" data-tags="js powerautomate sharepoint" onclick="openModal('project1-images')">
-            <div class="card-img-wrapper">
-              <img src="images/project1.webp" alt="Financial Operations Management" width="1363" height="470" loading="lazy" decoding="async" />
-            </div>
-            <div class="card-body">
-              <span class="card-client" id="card-client-p1">Independent</span>
-              <h3 id="project1-title">Financial Operations Management</h3>
-              <div class="tech-badges">
-                <span class="badge">JavaScript</span>
-                <span class="badge">Power Automate</span>
-                <span class="badge">SharePoint</span>
-              </div>
-              <p id="project1-desc">Developed a SharePoint-based system using JavaScript, CSS, and HTML for web components, Power Automate for document creation and approvals, and SharePoint Online for secure storage.</p>
-            </div>
-          </div>
-
-          <div class="project-card" data-tags="js sharepoint" onclick="openModal('project2-images')">
-            <div class="card-img-wrapper">
-              <img src="images/project2.webp" alt="Company Voting System" width="1313" height="574" loading="lazy" decoding="async" />
-            </div>
-            <div class="card-body">
-              <span class="card-client" id="card-client-p2">Independent</span>
-              <h3 id="project2-title">Company Voting System</h3>
-              <div class="tech-badges">
-                <span class="badge">JavaScript</span>
-                <span class="badge">Bootstrap</span>
-                <span class="badge">SharePoint</span>
-              </div>
-              <p id="project2-desc">Designed a secure voting system using SharePoint, JavaScript, and Bootstrap, implementing real-time reporting and encrypted voting processes.</p>
-            </div>
-          </div>
-
-          <div class="project-card" data-tags="powerautomate sharepoint" onclick="openModal('project3-images')">
-            <div class="card-img-wrapper">
-              <img src="images/project3.webp" alt="Corporate Requests System" width="1301" height="620" loading="lazy" decoding="async" />
-            </div>
-            <div class="card-body">
-              <span class="card-client" id="card-client-p3">Independent</span>
-              <h3 id="project3-title">Corporate Requests System</h3>
-              <div class="tech-badges">
-                <span class="badge">Power Automate</span>
-                <span class="badge">SharePoint</span>
-              </div>
-              <p id="project3-desc">Created a ticketing system for pricing offers and product management, integrated with Power Automate for approvals and Excel exports.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     <!-- ── Skills ── -->
     <section id="skills" class="section">
       <div class="section-container">
         <h2 class="section-title" id="skills-title">Skills</h2>
         <div class="skills-grid">
           <div class="skill-category reveal">
-            <h4 class="skill-cat-title" id="skill-cat1">SharePoint / M365</h4>
+            <h3 class="skill-cat-title" id="skill-cat1">SharePoint / M365</h3>
             <div class="skill-badges">
               <span class="skill-badge">SPFx</span>
               <span class="skill-badge">SharePoint Online</span>
@@ -387,7 +457,7 @@
             </div>
           </div>
           <div class="skill-category reveal">
-            <h4 class="skill-cat-title" id="skill-cat2">Frontend</h4>
+            <h3 class="skill-cat-title" id="skill-cat2">Frontend</h3>
             <div class="skill-badges">
               <span class="skill-badge">React</span>
               <span class="skill-badge">TypeScript</span>
@@ -396,14 +466,14 @@
             </div>
           </div>
           <div class="skill-category reveal">
-            <h4 class="skill-cat-title" id="skill-cat3">Power Platform</h4>
+            <h3 class="skill-cat-title" id="skill-cat3">Power Platform</h3>
             <div class="skill-badges">
               <span class="skill-badge">Power Apps</span>
               <span class="skill-badge">Power Automate</span>
             </div>
           </div>
           <div class="skill-category reveal">
-            <h4 class="skill-cat-title" id="skill-cat4">DevOps / Tools</h4>
+            <h3 class="skill-cat-title" id="skill-cat4">DevOps / Tools</h3>
             <div class="skill-badges">
               <span class="skill-badge">Azure DevOps</span>
               <span class="skill-badge">PowerShell</span>
@@ -456,6 +526,8 @@
         </form>
       </div>
     </section>
+
+    </main>
 
     <!-- ── Modal ── -->
     <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Project screenshots">

@@ -40,22 +40,27 @@ const projectImages = {
     'images/project5.3.webp',
   ],
   'project6-images': [
-    'images/project6.1.svg',
-    'images/project6.2.svg',
+    'images/project6.1.webp',
   ],
   'project7-images': [
-    'images/project7.1.svg',
-    'images/project7.2.svg',
+    'images/project7.1.webp',
+    'images/project7.2.webp',
+    'images/project7.3.webp',
+  ],
+  'project8-images': [
+    'images/project8.1.webp',
+    'images/project8.2.webp',
+    'images/project8.3.webp',
   ],
 };
 
 // ── Translations ──
 const translations = {
   en: {
-    'hero-badge':          'Available for freelance projects',
+    'hero-badge':          'Open to senior roles · freelance',
     'hero-name':           'Jair Y. Coronado A.',
     'hero-title':          'Senior Software Engineer · SharePoint Developer',
-    'hero-tagline':        '6+ years building Microsoft 365 solutions for enterprise clients — SPFx, Power Platform, React & TypeScript.',
+    'hero-tagline':        '6+ years building Microsoft 365 and frontend solutions for enterprise clients like AT&T and Southwest Airlines. SPFx, Power Platform, React, TypeScript and AI-assisted development.',
     'hero-cta-projects':   'View Projects',
     'hero-cta-contact':    'Contact Me',
     'exp-section-title':   'Experience',
@@ -84,6 +89,15 @@ const translations = {
     'exp5-b1':             'Developed web solutions and digital tools as part of an in-house product team',
     'exp1-b3':             'Built integrated solutions connecting SharePoint with Power Automate flows, Outlook, and Azure Functions across enterprise environments',
     'exp1-b4':             'Worked with React + TypeScript, Azure DevOps, GitHub repos, Veracode security scan pipelines, and Terraform-based infrastructure',
+    'exp1-company-period': 'Jul 2025 – Present',
+    'exp1-sw-client':      'Client: Southwest Airlines',
+    'exp1-sw-role':        'Senior Software Engineer',
+    'exp1-sw-period':      'May 2026 – Oct 2026',
+    'exp1-sw-desc':        'Worked on the frontend of a flight booking platform for a major US airline, built on micro frontends with React and TypeScript.',
+    'exp1-sw-b1':          'Delivered third-party UI integrations and defect fixes in the booking confirmation flow, responsive across all breakpoints, in coordination with Product, UX and QA',
+    'exp1-sw-b2':          'Coordinated and published releases of a shared component library through automated semantic-release pipelines consumed by the booking application',
+    'exp1-sw-b3':          'Improved CI reliability by centralizing visual regression mocks in the shared library, reducing maintenance and flaky test failures',
+    'exp1-sw-b4':          'Applied AI-assisted workflows with Kiro and Claude Code to analyze tickets and plan implementations, and built a Power Automate flow that routes GitLab MR notifications to Teams for the whole team',
     'exp2-b3':             'Designed component architecture and produced user documentation across multiple enterprise client projects',
     'exp3-b2':             'Managed portal content through SharePoint lists and libraries, integrating both internal and external data sources',
     'exp4-b2':             'Handled full project delivery: requirements gathering, solution design, negotiation, and frontend development using JS, jQuery, Bootstrap, HTML5, and CSS3',
@@ -102,6 +116,8 @@ const translations = {
     'project6-title':      'Future You – Learning Platform',
     'project6-desc':       'Developed an SPFx platform for AT&T enabling personalized learning paths, career growth tracking, and talent retention tools to help collaborators grow within the company.',
     'project7-title':      'Self Nomination Portal',
+    'project8-title':      'Flight Booking Platform',
+    'project8-desc':       'Built frontend features for a flight booking platform on a micro frontends architecture, integrating third-party components into the confirmation flow and strengthening visual regression testing in CI. Worked with React and TypeScript, using Kiro and Claude Code to analyze and implement tickets.',
     'project7-desc':       'Built a Power Apps solution to track self-nomination workflows for training courses — covering open access enrollment, supervisor review, and HRBP approval stages.',
     'skills-title':        'Skills',
     'skill-cat1':          'SharePoint / M365',
@@ -119,6 +135,7 @@ const translations = {
     'form-label-msg':      'Message',
     'form-submit':         'Send Message',
     'hero-cta-cv':         'Download CV',
+    'skip-link':           'Skip to content',
     'nav-about':           'About',
     'nav-experience':      'Experience',
     'nav-projects':        'Projects',
@@ -130,6 +147,7 @@ const translations = {
     'exp3-client':         'Client: P10 Holdings',
     'card-client-p6':      'AT&T · Omnicom',
     'card-client-p7':      'AT&T · Omnicom',
+    'card-client-p8':      'Southwest Airlines · Omnicom',
     'card-client-p4':      'Independent',
     'card-client-p5':      'P10 Holdings · SIIMPL',
     'card-client-p1':      'Independent',
@@ -137,10 +155,10 @@ const translations = {
     'card-client-p3':      'Independent',
   },
   es: {
-    'hero-badge':          'Disponible para proyectos freelance',
+    'hero-badge':          'Abierto a roles senior · freelance',
     'hero-name':           'Jair Y. Coronado A.',
     'hero-title':          'Ingeniero de Software Senior · Desarrollador SharePoint',
-    'hero-tagline':        'Más de 6 años construyendo soluciones Microsoft 365 para clientes enterprise — SPFx, Power Platform, React y TypeScript.',
+    'hero-tagline':        'Más de 6 años construyendo soluciones Microsoft 365 y frontend para clientes enterprise como AT&T y Southwest Airlines. SPFx, Power Platform, React, TypeScript y desarrollo asistido por IA.',
     'hero-cta-projects':   'Ver Proyectos',
     'hero-cta-contact':    'Contáctame',
     'exp-section-title':   'Experiencia',
@@ -169,6 +187,15 @@ const translations = {
     'exp5-b1':             'Desarrollé soluciones web y herramientas digitales como parte de un equipo de producto interno',
     'exp1-b3':             'Construí soluciones integradas conectando SharePoint con flujos de Power Automate, Outlook y Azure Functions en entornos enterprise',
     'exp1-b4':             'Trabajé con React + TypeScript, Azure DevOps, repositorios GitHub, pipelines de seguridad Veracode e infraestructura basada en Terraform',
+    'exp1-company-period': 'Jul 2025 – Presente',
+    'exp1-sw-client':      'Cliente: Southwest Airlines',
+    'exp1-sw-role':        'Ingeniero de Software Senior',
+    'exp1-sw-period':      'May 2026 – Oct 2026',
+    'exp1-sw-desc':        'Trabajé en el frontend de una plataforma de reservas de vuelos para una aerolínea importante de Estados Unidos, construida con micro frontends, React y TypeScript.',
+    'exp1-sw-b1':          'Entregué integraciones de componentes de UI de terceros y correcciones de defectos en el flujo de confirmación de reserva, responsive en todos los breakpoints, en coordinación con Producto, UX y QA',
+    'exp1-sw-b2':          'Coordiné y publiqué releases de una librería de componentes compartida mediante pipelines automatizados de semantic-release, consumidos por la aplicación de reservas',
+    'exp1-sw-b3':          'Mejoré la confiabilidad del CI centralizando los mocks de regresión visual en la librería compartida, reduciendo el mantenimiento y las fallas intermitentes',
+    'exp1-sw-b4':          'Apliqué flujos de trabajo asistidos por IA con Kiro y Claude Code para analizar tickets y planear implementaciones, y construí un flujo de Power Automate que envía las notificaciones de MRs de GitLab a Teams para todo el equipo',
     'exp2-b3':             'Diseñé arquitecturas de componentes y produje documentación de usuario para múltiples proyectos de clientes enterprise',
     'exp3-b2':             'Gestioné el contenido del portal mediante listas y bibliotecas de SharePoint, integrando fuentes de datos internas y externas',
     'exp4-b2':             'Gestioné la entrega end-to-end de proyectos: levantamiento de requerimientos, diseño de soluciones, negociación y desarrollo frontend con JS, jQuery, Bootstrap, HTML5 y CSS3',
@@ -187,6 +214,8 @@ const translations = {
     'project6-title':      'Future You – Plataforma de Aprendizaje',
     'project6-desc':       'Desarrollé una plataforma SPFx para AT&T con rutas de aprendizaje personalizadas, seguimiento de crecimiento profesional y herramientas de retención de talento.',
     'project7-title':      'Portal de Auto-Nominación',
+    'project8-title':      'Plataforma de Reservas de Vuelos',
+    'project8-desc':       'Desarrollé funcionalidades frontend para una plataforma de reservas de vuelos con arquitectura de micro frontends, integrando componentes de terceros en el flujo de confirmación y fortaleciendo las pruebas de regresión visual en CI. Trabajé con React y TypeScript, apoyado en Kiro y Claude Code para el análisis y la implementación de tickets.',
     'project7-desc':       'Desarrollé una solución en Power Apps para gestionar nominaciones a cursos de formación, incluyendo acceso abierto, revisión de supervisores y aprobación de HRBPs.',
     'skills-title':        'Habilidades',
     'skill-cat1':          'SharePoint / M365',
@@ -204,7 +233,8 @@ const translations = {
     'form-label-msg':      'Mensaje',
     'form-submit':         'Enviar Mensaje',
     'hero-cta-cv':         'Descargar CV',
-    'nav-about':           'Acerca',
+    'skip-link':           'Saltar al contenido',
+    'nav-about':           'Sobre mí',
     'nav-experience':      'Experiencia',
     'nav-projects':        'Proyectos',
     'nav-skills':          'Habilidades',
@@ -215,6 +245,7 @@ const translations = {
     'exp3-client':         'Cliente: P10 Holdings',
     'card-client-p6':      'AT&T · Omnicom',
     'card-client-p7':      'AT&T · Omnicom',
+    'card-client-p8':      'Southwest Airlines · Omnicom',
     'card-client-p4':      'Independiente',
     'card-client-p5':      'P10 Holdings · SIIMPL',
     'card-client-p1':      'Independiente',
@@ -249,44 +280,137 @@ const messages = {
   },
 };
 
+// Strings that are not element textContent (aria-labels, alt text, modal UI).
+// Kept apart from `translations` because they have no matching element id.
+const uiStrings = {
+  en: {
+    docTitle:    'Jair Y. Coronado A. · SharePoint Developer',
+    docDesc:     'Senior Software Engineer & SharePoint Developer. SPFx, Power Platform, React, TypeScript. 6+ years building Microsoft 365 solutions for enterprise clients.',
+    navLabel:    'Primary',
+    projectsShown: (n) => n + (n === 1 ? ' project shown' : ' projects shown'),
+    cardCue:     'View details',
+    themeToggle: 'Dark mode',
+    modalClose:  'Close',
+    modalEmpty:  'No additional images available.',
+    modalLabel:  (label) => label + ', screenshots',
+    imageAlt:    (label, i, n) => label + ', screenshot ' + i + ' of ' + n,
+  },
+  es: {
+    docTitle:    'Jair Y. Coronado A. · Desarrollador SharePoint',
+    docDesc:     'Ingeniero de Software Senior y Desarrollador SharePoint. SPFx, Power Platform, React, TypeScript. Más de 6 años construyendo soluciones Microsoft 365 para clientes enterprise.',
+    navLabel:    'Principal',
+    projectsShown: (n) => n + (n === 1 ? ' proyecto visible' : ' proyectos visibles'),
+    cardCue:     'Ver detalles',
+    themeToggle: 'Modo oscuro',
+    modalClose:  'Cerrar',
+    modalEmpty:  'No hay imágenes adicionales disponibles.',
+    modalLabel:  (label) => label + ', capturas',
+    imageAlt:    (label, i, n) => label + ', captura ' + i + ' de ' + n,
+  },
+};
+
+function currentUi() {
+  return uiStrings[document.documentElement.lang === 'es' ? 'es' : 'en'];
+}
+
 // ── Global modal (must be window-scoped for inline onclick) ──
+let modalHideTimer = null;
+
+function setPageInert(on) {
+  const modal = document.getElementById('modal');
+  Array.from(document.body.children).forEach((el) => {
+    if (el === modal || el.tagName === 'SCRIPT') return;
+    if (on) el.setAttribute('inert', '');
+    else el.removeAttribute('inert');
+  });
+}
+
 window.openModal = function (projectId) {
   const modal = document.getElementById('modal');
   const modalContent = document.getElementById('modal-content');
-  window._modalLastFocused = document.activeElement;
-  modalContent.innerHTML = '';
-  const titleEl = document.getElementById(projectId.replace('-images', '-title'));
+  const ui = currentUi();
+  clearTimeout(modalHideTimer);
+  if (!modal.classList.contains('open')) window._modalLastFocused = document.activeElement;
+  modalContent.textContent = '';
+  const base = projectId.replace('-images', '');
+  const titleEl = document.getElementById(base + '-title');
+  const descEl = document.getElementById(base + '-desc');
   const label = titleEl ? titleEl.textContent.trim() : 'Project';
+
+  const heading = document.createElement('h3');
+  heading.className = 'modal-title';
+  heading.textContent = label;
+  modalContent.appendChild(heading);
+  if (descEl) {
+    const desc = document.createElement('p');
+    desc.className = 'modal-desc';
+    desc.textContent = descEl.textContent.trim();
+    modalContent.appendChild(desc);
+  }
+
   const images = projectImages[projectId];
   if (images && images.length > 0) {
     images.forEach((src, i) => {
       const img = document.createElement('img');
       img.src = src;
-      img.alt = label + ' — screenshot ' + (i + 1) + ' of ' + images.length;
+      img.alt = ui.imageAlt(label, i + 1, images.length);
       img.loading = 'lazy';
       img.decoding = 'async';
       modalContent.appendChild(img);
     });
   } else {
-    modalContent.innerHTML = '<p style="padding:20px;color:var(--text-muted)">No additional images available.</p>';
+    const empty = document.createElement('p');
+    empty.className = 'modal-empty';
+    empty.textContent = ui.modalEmpty;
+    modalContent.appendChild(empty);
   }
-  modal.setAttribute('aria-label', label + ' screenshots');
+  modal.setAttribute('aria-label', ui.modalLabel(label));
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
+  setPageInert(true);
   requestAnimationFrame(() => modal.classList.add('open'));
   const closeBtn = modal.querySelector('.close');
-  if (closeBtn) closeBtn.focus();
+  if (closeBtn) {
+    closeBtn.setAttribute('aria-label', ui.modalClose);
+    closeBtn.focus();
+  }
 };
 
 window.closeModal = function () {
   const modal = document.getElementById('modal');
+  if (!modal.classList.contains('open')) return;
   modal.classList.remove('open');
   document.body.style.overflow = '';
-  setTimeout(() => { modal.style.display = 'none'; }, 200);
-  if (window._modalLastFocused && window._modalLastFocused.focus) {
-    window._modalLastFocused.focus();
-  }
+  setPageInert(false);
+  clearTimeout(modalHideTimer);
+  modalHideTimer = setTimeout(() => { modal.style.display = 'none'; }, 200);
+  const last = window._modalLastFocused;
+  if (last && last.focus) last.focus();
+  window._modalLastFocused = null;
 };
+
+// Keep Tab / Shift+Tab inside the open modal.
+function trapModalFocus(e) {
+  const modal = document.getElementById('modal');
+  if (!modal.classList.contains('open')) return;
+  const focusable = Array.from(modal.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  )).filter((el) => !el.disabled);
+  if (focusable.length === 0) { e.preventDefault(); return; }
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  const active = document.activeElement;
+  if (!modal.contains(active)) {
+    e.preventDefault();
+    first.focus();
+  } else if (e.shiftKey && active === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && active === last) {
+    e.preventDefault();
+    first.focus();
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -298,8 +422,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.classList.add('dark');
     themeIcon.textContent = '☾';
   }
+  themeToggle.setAttribute('aria-pressed', String(saved === 'dark'));
   themeToggle.addEventListener('click', function () {
     const isDark = document.body.classList.toggle('dark');
+    themeToggle.setAttribute('aria-pressed', String(isDark));
     themeIcon.textContent = isDark ? '☾' : '☀';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
@@ -316,11 +442,25 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   let currentLang = detectInitialLang();
+  let filterAnnounced = false;
 
   function applyLanguage(lang) {
     document.documentElement.lang = lang;
     // The button always advertises the OTHER language you can switch to.
     languageToggle.textContent = lang === 'en' ? 'Español' : 'English';
+    languageToggle.setAttribute('lang', lang === 'en' ? 'es' : 'en');
+    const ui = uiStrings[lang];
+    themeToggle.setAttribute('aria-label', ui.themeToggle);
+    document.title = ui.docTitle;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', ui.docDesc);
+    const mainNavEl = document.getElementById('mainNav');
+    if (mainNavEl) mainNavEl.setAttribute('aria-label', ui.navLabel);
+    document.querySelectorAll('.card-cue').forEach((cue) => {
+      cue.firstChild.nodeValue = ui.cardCue + ' ';
+    });
+    const modalClose = document.querySelector('#modal .close');
+    if (modalClose) modalClose.setAttribute('aria-label', ui.modalClose);
     Object.entries(translations[lang]).forEach(([id, text]) => {
       const el = document.getElementById(id);
       if (el) el.textContent = text;
@@ -329,6 +469,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const el = document.getElementById(id);
       if (el) el.setAttribute('placeholder', text);
     });
+    if (typeof announceFilter === 'function' && filterAnnounced) announceFilter();
   }
 
   applyLanguage(currentLang);
@@ -343,10 +484,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.project-card');
 
+  function announceFilter() {
+    const status = document.getElementById('filter-status');
+    if (!status) return;
+    const shown = document.querySelectorAll('.project-card:not(.hidden)').length;
+    status.textContent = uiStrings[currentLang].projectsShown(shown);
+  }
+
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', function () {
-      filterBtns.forEach((b) => b.classList.remove('active'));
+      filterBtns.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       const filter = btn.dataset.filter;
       cards.forEach((card) => {
         if (filter === 'all') {
@@ -356,6 +508,8 @@ document.addEventListener('DOMContentLoaded', function () {
           card.classList.toggle('hidden', !tags.includes(filter));
         }
       });
+      filterAnnounced = true;
+      announceFilter();
     });
   });
 
@@ -512,7 +666,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') window.closeModal();
+    const modalOpen = document.getElementById('modal').classList.contains('open');
+    if (e.key === 'Escape' && modalOpen) window.closeModal();
+    else if (e.key === 'Tab') trapModalFocus(e);
   });
 
   // ── Analytics: count CV downloads as an event ──
