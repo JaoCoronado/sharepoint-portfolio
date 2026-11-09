@@ -135,6 +135,7 @@ const translations = {
     'form-label-msg':      'Message',
     'form-submit':         'Send Message',
     'hero-cta-cv':         'Download CV',
+    'skip-link':           'Skip to content',
     'nav-about':           'About',
     'nav-experience':      'Experience',
     'nav-projects':        'Projects',
@@ -232,7 +233,8 @@ const translations = {
     'form-label-msg':      'Mensaje',
     'form-submit':         'Enviar Mensaje',
     'hero-cta-cv':         'Descargar CV',
-    'nav-about':           'Acerca',
+    'skip-link':           'Saltar al contenido',
+    'nav-about':           'Sobre mí',
     'nav-experience':      'Experiencia',
     'nav-projects':        'Proyectos',
     'nav-skills':          'Habilidades',
@@ -282,6 +284,10 @@ const messages = {
 // Kept apart from `translations` because they have no matching element id.
 const uiStrings = {
   en: {
+    docTitle:    'Jair Y. Coronado A. · SharePoint Developer',
+    docDesc:     'Senior Software Engineer & SharePoint Developer. SPFx, Power Platform, React, TypeScript. 6+ years building Microsoft 365 solutions for enterprise clients.',
+    navLabel:    'Primary',
+    projectsShown: (n) => n + (n === 1 ? ' project shown' : ' projects shown'),
     cardCue:     'View details',
     themeToggle: 'Dark mode',
     modalClose:  'Close',
@@ -290,6 +296,10 @@ const uiStrings = {
     imageAlt:    (label, i, n) => label + ', screenshot ' + i + ' of ' + n,
   },
   es: {
+    docTitle:    'Jair Y. Coronado A. · Desarrollador SharePoint',
+    docDesc:     'Ingeniero de Software Senior y Desarrollador SharePoint. SPFx, Power Platform, React, TypeScript. Más de 6 años construyendo soluciones Microsoft 365 para clientes enterprise.',
+    navLabel:    'Principal',
+    projectsShown: (n) => n + (n === 1 ? ' proyecto visible' : ' proyectos visibles'),
     cardCue:     'Ver detalles',
     themeToggle: 'Modo oscuro',
     modalClose:  'Cerrar',
@@ -432,6 +442,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   let currentLang = detectInitialLang();
+  let filterAnnounced = false;
 
   function applyLanguage(lang) {
     document.documentElement.lang = lang;
@@ -440,6 +451,11 @@ document.addEventListener('DOMContentLoaded', function () {
     languageToggle.setAttribute('lang', lang === 'en' ? 'es' : 'en');
     const ui = uiStrings[lang];
     themeToggle.setAttribute('aria-label', ui.themeToggle);
+    document.title = ui.docTitle;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', ui.docDesc);
+    const mainNavEl = document.getElementById('mainNav');
+    if (mainNavEl) mainNavEl.setAttribute('aria-label', ui.navLabel);
     document.querySelectorAll('.card-cue').forEach((cue) => {
       cue.firstChild.nodeValue = ui.cardCue + ' ';
     });
@@ -453,6 +469,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const el = document.getElementById(id);
       if (el) el.setAttribute('placeholder', text);
     });
+    if (typeof announceFilter === 'function' && filterAnnounced) announceFilter();
   }
 
   applyLanguage(currentLang);
@@ -467,10 +484,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.project-card');
 
+  function announceFilter() {
+    const status = document.getElementById('filter-status');
+    if (!status) return;
+    const shown = document.querySelectorAll('.project-card:not(.hidden)').length;
+    status.textContent = uiStrings[currentLang].projectsShown(shown);
+  }
+
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', function () {
-      filterBtns.forEach((b) => b.classList.remove('active'));
+      filterBtns.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       const filter = btn.dataset.filter;
       cards.forEach((card) => {
         if (filter === 'all') {
@@ -480,6 +508,8 @@ document.addEventListener('DOMContentLoaded', function () {
           card.classList.toggle('hidden', !tags.includes(filter));
         }
       });
+      filterAnnounced = true;
+      announceFilter();
     });
   });
 
