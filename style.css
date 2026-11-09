@@ -503,9 +503,12 @@ body {
 .btn-send:active,
 .filter-btn:active,
 .lang-btn:active,
-.theme-btn:active,
-.project-card:active {
+.theme-btn:active {
   transform: scale(0.97);
+}
+
+.project-card:active {
+  transform: scale(0.985);
 }
 
 a:focus-visible,
@@ -913,6 +916,8 @@ button:focus-visible,
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-1);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
   border: var(--border-1) solid var(--border);
   transition: transform var(--dur-base) var(--ease-out),
@@ -934,14 +939,20 @@ button:focus-visible,
   display: none;
 }
 
-.project-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent);
-  box-shadow: var(--shadow-2);
-}
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-2);
+  }
 
-.project-card:hover .card-body h3 {
-  color: var(--accent-text);
+  .project-card:hover .card-img-wrapper img {
+    transform: scale(1.03);
+  }
+
+  .project-card:hover .card-cue-arrow {
+    transform: translateX(4px);
+  }
 }
 
 @keyframes fadeInUp {
@@ -961,15 +972,27 @@ button:focus-visible,
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform var(--dur-slow) ease;
-}
-
-.project-card:hover .card-img-wrapper img {
-  transform: scale(1.05);
+  transition: transform var(--dur-slow) var(--ease-out);
 }
 
 .card-body {
   padding: var(--space-5);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-cue {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--accent-text);
+}
+
+.card-cue-arrow {
+  display: inline-block;
+  transition: transform var(--dur-base) var(--ease-out);
 }
 
 .card-client {
@@ -1016,6 +1039,11 @@ button:focus-visible,
   color: var(--text-muted);
   line-height: var(--leading-normal);
   margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
 
 /* ── Skills ── */
@@ -1208,6 +1236,30 @@ button:focus-visible,
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-3);
   display: block;
+}
+
+.modal-title {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semi);
+  line-height: var(--leading-snug);
+  color: var(--text);
+  text-align: left;
+}
+
+.modal-desc {
+  margin: 0 0 var(--space-5);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.modal-empty {
+  margin: 0;
+  padding: var(--space-5);
+  color: var(--text-muted);
 }
 
 .close {

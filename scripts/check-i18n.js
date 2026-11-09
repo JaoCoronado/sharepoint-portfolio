@@ -5,6 +5,7 @@
 //   1. en and es define the same keys.
 //   2. Every key has a matching id="<key>" element in index.html.
 //   3. No em dash in any value, except keys that already had one.
+//   4. The separate `uiStrings` object has en/es key parity and no em dash.
 // Exit 0 on success, 2 on failure (the exit code Claude Code hooks treat as blocking).
 // Also usable as a hook: with hook JSON on stdin, it only runs when the edited
 // file is script.js or index.html.
@@ -24,10 +25,10 @@ const EM_DASH_ALLOWLIST = new Set([
   'project7-desc',
 ]);
 
-function extractTranslations(source) {
-  const marker = 'const translations = {';
+function extractObject(source, name) {
+  const marker = 'const ' + name + ' = {';
   const start = source.indexOf(marker);
-  if (start === -1) throw new Error('Could not find "const translations = {" in script.js');
+  if (start === -1) throw new Error('Could not find "' + marker + '" in script.js');
   const open = start + marker.length - 1;
 
   let depth = 0;
@@ -62,8 +63,10 @@ function run() {
   const errors = [];
 
   let translations;
+  let uiStrings;
   try {
-    translations = extractTranslations(scriptSrc);
+    translations = extractObject(scriptSrc, 'translations');
+    uiStrings = extractObject(scriptSrc, 'uiStrings');
   } catch (err) {
     console.error('i18n check: ' + err.message);
     process.exit(2);
@@ -92,6 +95,18 @@ function run() {
       if (typeof v === 'string' && v.includes(EM_DASH) && !EM_DASH_ALLOWLIST.has(k)) {
         errors.push('Key "' + k + '" (' + lang + ') contains an em dash; use an en dash or rephrase');
       }
+    });
+  });
+
+  // uiStrings: aria-labels, alt text and modal UI with no element id, so only
+  // key parity and the em dash rule apply.
+  const uiEn = uiStrings.en || {};
+  const uiEs = uiStrings.es || {};
+  Object.keys(uiEn).filter((k) => !(k in uiEs)).forEach((k) => errors.push('uiStrings key "' + k + '" is in en but missing in es'));
+  Object.keys(uiEs).filter((k) => !(k in uiEn)).forEach((k) => errors.push('uiStrings key "' + k + '" is in es but missing in en'));
+  ['en', 'es'].forEach((lang) => {
+    Object.entries(uiStrings[lang] || {}).forEach(([k, v]) => {
+      if (String(v).includes(EM_DASH)) errors.push('uiStrings key "' + k + '" (' + lang + ') contains an em dash');
     });
   });
 

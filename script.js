@@ -277,44 +277,129 @@ const messages = {
   },
 };
 
+// Strings that are not element textContent (aria-labels, alt text, modal UI).
+// Kept apart from `translations` because they have no matching element id.
+const uiStrings = {
+  en: {
+    cardCue:     'View details',
+    themeToggle: 'Dark mode',
+    modalClose:  'Close',
+    modalEmpty:  'No additional images available.',
+    modalLabel:  (label) => label + ', screenshots',
+    imageAlt:    (label, i, n) => label + ', screenshot ' + i + ' of ' + n,
+  },
+  es: {
+    cardCue:     'Ver detalles',
+    themeToggle: 'Modo oscuro',
+    modalClose:  'Cerrar',
+    modalEmpty:  'No hay imágenes adicionales disponibles.',
+    modalLabel:  (label) => label + ', capturas',
+    imageAlt:    (label, i, n) => label + ', captura ' + i + ' de ' + n,
+  },
+};
+
+function currentUi() {
+  return uiStrings[document.documentElement.lang === 'es' ? 'es' : 'en'];
+}
+
 // ── Global modal (must be window-scoped for inline onclick) ──
+let modalHideTimer = null;
+
+function setPageInert(on) {
+  const modal = document.getElementById('modal');
+  Array.from(document.body.children).forEach((el) => {
+    if (el === modal || el.tagName === 'SCRIPT') return;
+    if (on) el.setAttribute('inert', '');
+    else el.removeAttribute('inert');
+  });
+}
+
 window.openModal = function (projectId) {
   const modal = document.getElementById('modal');
   const modalContent = document.getElementById('modal-content');
-  window._modalLastFocused = document.activeElement;
-  modalContent.innerHTML = '';
-  const titleEl = document.getElementById(projectId.replace('-images', '-title'));
+  const ui = currentUi();
+  clearTimeout(modalHideTimer);
+  if (!modal.classList.contains('open')) window._modalLastFocused = document.activeElement;
+  modalContent.textContent = '';
+  const base = projectId.replace('-images', '');
+  const titleEl = document.getElementById(base + '-title');
+  const descEl = document.getElementById(base + '-desc');
   const label = titleEl ? titleEl.textContent.trim() : 'Project';
+
+  const heading = document.createElement('h3');
+  heading.className = 'modal-title';
+  heading.textContent = label;
+  modalContent.appendChild(heading);
+  if (descEl) {
+    const desc = document.createElement('p');
+    desc.className = 'modal-desc';
+    desc.textContent = descEl.textContent.trim();
+    modalContent.appendChild(desc);
+  }
+
   const images = projectImages[projectId];
   if (images && images.length > 0) {
     images.forEach((src, i) => {
       const img = document.createElement('img');
       img.src = src;
-      img.alt = label + ' — screenshot ' + (i + 1) + ' of ' + images.length;
+      img.alt = ui.imageAlt(label, i + 1, images.length);
       img.loading = 'lazy';
       img.decoding = 'async';
       modalContent.appendChild(img);
     });
   } else {
-    modalContent.innerHTML = '<p style="padding:20px;color:var(--text-muted)">No additional images available.</p>';
+    const empty = document.createElement('p');
+    empty.className = 'modal-empty';
+    empty.textContent = ui.modalEmpty;
+    modalContent.appendChild(empty);
   }
-  modal.setAttribute('aria-label', label + ' screenshots');
+  modal.setAttribute('aria-label', ui.modalLabel(label));
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
+  setPageInert(true);
   requestAnimationFrame(() => modal.classList.add('open'));
   const closeBtn = modal.querySelector('.close');
-  if (closeBtn) closeBtn.focus();
+  if (closeBtn) {
+    closeBtn.setAttribute('aria-label', ui.modalClose);
+    closeBtn.focus();
+  }
 };
 
 window.closeModal = function () {
   const modal = document.getElementById('modal');
+  if (!modal.classList.contains('open')) return;
   modal.classList.remove('open');
   document.body.style.overflow = '';
-  setTimeout(() => { modal.style.display = 'none'; }, 200);
-  if (window._modalLastFocused && window._modalLastFocused.focus) {
-    window._modalLastFocused.focus();
-  }
+  setPageInert(false);
+  clearTimeout(modalHideTimer);
+  modalHideTimer = setTimeout(() => { modal.style.display = 'none'; }, 200);
+  const last = window._modalLastFocused;
+  if (last && last.focus) last.focus();
+  window._modalLastFocused = null;
 };
+
+// Keep Tab / Shift+Tab inside the open modal.
+function trapModalFocus(e) {
+  const modal = document.getElementById('modal');
+  if (!modal.classList.contains('open')) return;
+  const focusable = Array.from(modal.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  )).filter((el) => !el.disabled);
+  if (focusable.length === 0) { e.preventDefault(); return; }
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  const active = document.activeElement;
+  if (!modal.contains(active)) {
+    e.preventDefault();
+    first.focus();
+  } else if (e.shiftKey && active === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && active === last) {
+    e.preventDefault();
+    first.focus();
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -326,8 +411,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.classList.add('dark');
     themeIcon.textContent = '☾';
   }
+  themeToggle.setAttribute('aria-pressed', String(saved === 'dark'));
   themeToggle.addEventListener('click', function () {
     const isDark = document.body.classList.toggle('dark');
+    themeToggle.setAttribute('aria-pressed', String(isDark));
     themeIcon.textContent = isDark ? '☾' : '☀';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
@@ -349,6 +436,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.documentElement.lang = lang;
     // The button always advertises the OTHER language you can switch to.
     languageToggle.textContent = lang === 'en' ? 'Español' : 'English';
+    languageToggle.setAttribute('lang', lang === 'en' ? 'es' : 'en');
+    const ui = uiStrings[lang];
+    themeToggle.setAttribute('aria-label', ui.themeToggle);
+    document.querySelectorAll('.card-cue').forEach((cue) => {
+      cue.firstChild.nodeValue = ui.cardCue + ' ';
+    });
+    const modalClose = document.querySelector('#modal .close');
+    if (modalClose) modalClose.setAttribute('aria-label', ui.modalClose);
     Object.entries(translations[lang]).forEach(([id, text]) => {
       const el = document.getElementById(id);
       if (el) el.textContent = text;
@@ -540,7 +635,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') window.closeModal();
+    const modalOpen = document.getElementById('modal').classList.contains('open');
+    if (e.key === 'Escape' && modalOpen) window.closeModal();
+    else if (e.key === 'Tab') trapModalFocus(e);
   });
 
   // ── Analytics: count CV downloads as an event ──
