@@ -40,16 +40,17 @@ const projectImages = {
     'images/project5.3.webp',
   ],
   'project6-images': [
-    'images/project6.1.svg',
-    'images/project6.2.svg',
+    'images/project6.1.webp',
   ],
   'project7-images': [
-    'images/project7.1.svg',
-    'images/project7.2.svg',
+    'images/project7.1.webp',
+    'images/project7.2.webp',
+    'images/project7.3.webp',
   ],
   'project8-images': [
-    'images/project8.1.svg',
-    'images/project8.2.svg',
+    'images/project8.1.webp',
+    'images/project8.2.webp',
+    'images/project8.3.webp',
   ],
 };
 
