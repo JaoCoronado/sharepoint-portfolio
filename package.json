@@ -1,6 +1,10 @@
 {
   "name": "sharepoint-portfolio",
   "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test",
+    "check:i18n": "node scripts/check-i18n.js"
+  },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
     "serve": "^14.2.6",
