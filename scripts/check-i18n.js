@@ -20,7 +20,6 @@ const EM_DASH = '—';
 // Keys that already contained an em dash before this check existed.
 // New copy must not add to this list.
 const EM_DASH_ALLOWLIST = new Set([
-  'hero-tagline',
   'exp5-b2',
   'project7-desc',
 ]);

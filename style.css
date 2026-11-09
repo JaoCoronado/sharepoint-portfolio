@@ -578,9 +578,10 @@ button:focus-visible,
   gap: var(--space-2);
   position: relative;
   overflow: hidden;
-  animation: cv-border-pulse 2.2s ease-in-out infinite;
 }
 
+/* The shine plays once per hover instead of looping at rest, so the CV
+   button no longer competes with the primary "View Projects" action. */
 .btn-cv::after {
   content: '';
   position: absolute;
@@ -589,7 +590,7 @@ button:focus-visible,
   width: 55%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
-  animation: cv-shine 3s ease-in-out 1.5s infinite;
+  opacity: 0;
   pointer-events: none;
 }
 
@@ -598,16 +599,10 @@ button:focus-visible,
   border-color: var(--on-dark);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px var(--on-dark-fill-h);
-  animation: none;
 }
 
 .btn-cv:hover::after {
-  animation: none;
-}
-
-@keyframes cv-border-pulse {
-  0%, 100% { box-shadow: 0 4px 14px rgba(0,0,0,0.30), 0 0 0 0 rgba(255,255,255,0.20); }
-  50%      { box-shadow: 0 4px 14px rgba(0,0,0,0.30), 0 0 0 5px rgba(255,255,255,0); }
+  animation: cv-shine 0.9s var(--ease-out) 1;
 }
 
 @keyframes cv-shine {

@@ -56,10 +56,10 @@ const projectImages = {
 // ── Translations ──
 const translations = {
   en: {
-    'hero-badge':          'Available for freelance projects',
+    'hero-badge':          'Open to senior roles · freelance',
     'hero-name':           'Jair Y. Coronado A.',
     'hero-title':          'Senior Software Engineer · SharePoint Developer',
-    'hero-tagline':        '6+ years building Microsoft 365 solutions for enterprise clients — SPFx, Power Platform, React & TypeScript.',
+    'hero-tagline':        '6+ years building Microsoft 365 and frontend solutions for enterprise clients like AT&T and Southwest Airlines. SPFx, Power Platform, React, TypeScript and AI-assisted development.',
     'hero-cta-projects':   'View Projects',
     'hero-cta-contact':    'Contact Me',
     'exp-section-title':   'Experience',
@@ -153,10 +153,10 @@ const translations = {
     'card-client-p3':      'Independent',
   },
   es: {
-    'hero-badge':          'Disponible para proyectos freelance',
+    'hero-badge':          'Abierto a roles senior · freelance',
     'hero-name':           'Jair Y. Coronado A.',
     'hero-title':          'Ingeniero de Software Senior · Desarrollador SharePoint',
-    'hero-tagline':        'Más de 6 años construyendo soluciones Microsoft 365 para clientes enterprise — SPFx, Power Platform, React y TypeScript.',
+    'hero-tagline':        'Más de 6 años construyendo soluciones Microsoft 365 y frontend para clientes enterprise como AT&T y Southwest Airlines. SPFx, Power Platform, React, TypeScript y desarrollo asistido por IA.',
     'hero-cta-projects':   'Ver Proyectos',
     'hero-cta-contact':    'Contáctame',
     'exp-section-title':   'Experiencia',
